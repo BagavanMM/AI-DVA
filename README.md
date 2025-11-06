@@ -96,7 +96,3 @@ python src/build_similarity_index.py
 Set API keys in `.env` file or enter directly in web UI:
 - `ANTHROPIC_API_KEY` - For Claude models
 - `OPENAI_API_KEY` - For GPT models
-
-## License
-
-MIT
