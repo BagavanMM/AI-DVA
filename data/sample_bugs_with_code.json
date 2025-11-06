@@ -1,0 +1,90 @@
+[
+  {
+    "bug_id": "TB-PCIE-001",
+    "title": "Credit counter underflow in PCIe transaction layer packet handler",
+    "error_message": "Error: Credit counter underflow detected at cycle 45231\nAssertion failed: pcie_credit_mgr.credit_count[7:0] >= 0\n  File: pcie_tlp_handler.sv, line 234\n  Module: pcie_tlp_handler\n  Time: 45231 ns",
+    "description": "The PCIe transaction layer packet handler is experiencing credit counter underflow during high-frequency transaction bursts. This occurs when the credit counter wraps around instead of saturating at zero. The test was running a stress scenario with 300 TLP requests in rapid succession.\n\nRelated Code:\n// pcie_credit_mgr.sv\nalways_ff @(posedge clk) begin\n    if (credit_increment && credit_count < MAX_CREDITS) begin\n        credit_count <= credit_count + 1;\n    end\n    if (credit_decrement && credit_count > 0) begin\n        credit_count <= credit_count - 1;  // BUG: No check for underflow\n    end\nend",
+    "module": "pcie_tlp_handler",
+    "test_name": "test_pcie_credit_stress_burst",
+    "failure_cycle": 45231,
+    "severity": "HIGH",
+    "bug_type": "PROTOCOL"
+  },
+  {
+    "bug_id": "TB-UART-002",
+    "title": "Race condition causing multiple grants in UART TX arbiter",
+    "error_message": "Fatal: Multiple grants asserted simultaneously\nAssertion failed: $onehot(arbiter_grant)\n  File: uart_tx_arbiter.sv, line 156\n  Module: uart_tx_arbiter\n  Time: 9489 ns\n  Signal: arbiter_grant[3:0] = 4'b1100 (expected: one-hot)",
+    "description": "The UART TX arbiter is granting multiple requests simultaneously, violating the one-hot constraint. This happens when two requests arrive in the same cycle and the grant logic is not atomic.\n\nRelated Code:\n// uart_tx_arbiter.sv\nalways_comb begin\n    if (req[0] && !req[1] && !req[2] && !req[3])\n        grant[0] = 1'b1;\n    if (req[1] && !req[0] && !req[2] && !req[3])\n        grant[1] = 1'b1;  // BUG: Non-atomic, can grant multiple\n    if (req[2] && !req[0] && !req[1] && !req[3])\n        grant[2] = 1'b1;\n    if (req[3] && !req[0] && !req[1] && !req[2])\n        grant[3] = 1'b1;\nend",
+    "module": "uart_tx_arbiter",
+    "test_name": "test_uart_tx_concurrent_requests",
+    "failure_cycle": 9489,
+    "severity": "MEDIUM",
+    "bug_type": "FUNCTIONAL"
+  },
+  {
+    "bug_id": "TB-CACHE-003",
+    "title": "Setup time violation in cache controller data path during burst write",
+    "error_message": "Error: Setup time violation at cycle 36554\n  Signal: cache_data_valid\n  Required setup: 2.5 ns\n  Actual setup: 1.2 ns\n  Slack: -1.3 ns\n  Path: cache_write_fsm.state -> cache_data_valid_reg.D\n  File: cache_controller.sv, line 892",
+    "description": "The cache controller is experiencing setup time violations during burst write operations. The cache_data_valid signal is arriving too close to the clock edge. This occurs specifically when the state machine transitions from IDLE to WRITE state during high-frequency operations.\n\nRelated Code:\n// cache_controller.sv\nalways_ff @(posedge clk) begin\n    if (state == IDLE && write_req) begin\n        state <= WRITE;\n        cache_data_valid <= 1'b1;  // BUG: Long combinational path\n    end\nend\n\n// Long combinational path\nassign cache_data_valid = (state == WRITE) && write_enable && \n                         (write_addr[31:12] == cache_tag);",
+    "module": "cache_controller",
+    "test_name": "test_cache_burst_write_timing",
+    "failure_cycle": 36554,
+    "severity": "CRITICAL",
+    "bug_type": "TIMING"
+  },
+  {
+    "bug_id": "TB-AES-004",
+    "title": "AES module stuck in IDLE state after reset, no output produced",
+    "error_message": "Warning: AES module stuck in IDLE state\nAssertion failed: aes_fsm.state == IDLE -> ##[1:100] aes_fsm.state != IDLE\n  File: aes_crypto_engine.sv, line 445\n  Module: aes_crypto_engine\n  Timeout: 100 cycles after reset\n  Signal: aes_fsm.state = IDLE (expected: transition to PROCESSING)\n  Signal: aes_start = 1'b1 (asserted)\n  Signal: aes_ready = 1'b1 (ready signal active)",
+    "description": "The AES encryption module remains stuck in IDLE state even after receiving start signal and all ready signals are asserted. The state machine fails to transition to PROCESSING state. This occurs intermittently, approximately 1 in 50 test runs.\n\nRelated Code:\n// aes_crypto_engine.sv\ntypedef enum logic [2:0] {\n    IDLE, PROCESSING, DONE, ERROR\n} aes_state_t;\n\nalways_ff @(posedge clk) begin\n    if (rst_n) begin\n        case (state)\n            IDLE: begin\n                if (aes_start && aes_ready && key_valid && data_valid) begin\n                    state <= PROCESSING;  // BUG: Missing key_valid check in some paths\n                end\n            end\n        endcase\n    end\nend",
+    "module": "aes_crypto_engine",
+    "test_name": "test_aes_encryption_stress",
+    "failure_cycle": 0,
+    "severity": "HIGH",
+    "bug_type": "FUNCTIONAL"
+  },
+  {
+    "bug_id": "TB-CDC-005",
+    "title": "Metastability detected in clock domain crossing from sys_clk to fast_clk",
+    "error_message": "Fatal: Metastability detected in clock domain crossing\n  Signal: async_fifo_wr_ptr_gray[3:0]\n  Source domain: sys_clk (100 MHz)\n  Destination domain: fast_clk (200 MHz)\n  Synchronizer: 2-FF synchronizer\n  File: clock_domain_crossing.sv, line 234\n  Assertion: $stable(async_fifo_wr_ptr_gray) || $past($stable(async_fifo_wr_ptr_gray))",
+    "description": "Metastability is detected in the clock domain crossing between system clock (100 MHz) and fast clock (200 MHz). The Gray-coded write pointer is not properly synchronized, causing data corruption in the async FIFO.\n\nRelated Code:\n// clock_domain_crossing.sv\n// READ DOMAIN (fast_clk) - BUG: Missing synchronizer\nalways_ff @(posedge fast_clk) begin\n    rd_ptr_gray_sync <= wr_ptr_gray;  // BUG: Direct assignment, no 2-FF sync\n    empty <= (rd_ptr_gray_sync == wr_ptr_gray);\nend",
+    "module": "clock_domain_crossing",
+    "test_name": "test_cdc_async_fifo",
+    "failure_cycle": 12345,
+    "severity": "CRITICAL",
+    "bug_type": "TIMING"
+  },
+  {
+    "bug_id": "TB-DMA-006",
+    "title": "Memory corruption during concurrent DMA transfers",
+    "error_message": "Error: Memory address out of bounds\nAssertion failed: dma_addr[31:0] < MEMORY_SIZE\n  File: dma_controller.sv, line 567\n  Module: dma_controller\n  Time: 78901 ns\n  Channel: 2\n  Address: 0xFFFF_FFFF (expected: < 0x1000_0000)\n  Transfer size: 4096 bytes",
+    "description": "The DMA controller is accessing memory addresses beyond the allocated memory space during concurrent transfers on multiple channels. Channel 2 is calculating an incorrect address when multiple channels are active simultaneously.\n\nRelated Code:\n// dma_controller.sv\nalways_comb begin\n    for (int i = 0; i < NUM_CHANNELS; i++) begin\n        if (channel_enable[i]) begin\n            next_addr[i] = current_addr[i] + transfer_size[i];\n            // BUG: No bounds checking, can overflow\n        end\n    end\nend",
+    "module": "dma_controller",
+    "test_name": "test_dma_concurrent_channels",
+    "failure_cycle": 78901,
+    "severity": "HIGH",
+    "bug_type": "MEMORY"
+  },
+  {
+    "bug_id": "TB-I2C-007",
+    "title": "I2C STOP condition not properly generated after NACK",
+    "error_message": "Error: I2C protocol violation - STOP condition missing\nAssertion failed: i2c_sda_stable && i2c_scl_high -> ##[1:10] i2c_stop_condition\n  File: i2c_controller.sv, line 234\n  Module: i2c_controller\n  Time: 45678 ns\n  State: NACK_RECEIVED\n  Expected: Transition to STOP state\n  Actual: Remains in NACK_RECEIVED state",
+    "description": "The I2C controller fails to generate a STOP condition after receiving a NACK. The state machine remains stuck in NACK_RECEIVED state instead of transitioning to IDLE with proper STOP condition on the bus.\n\nRelated Code:\n// i2c_controller.sv\ntypedef enum logic [3:0] {\n    IDLE, START, ADDR, ACK, DATA, NACK_RECEIVED, STOP, ERROR\n} i2c_state_t;\n\nalways_ff @(posedge clk) begin\n    case (state)\n        NACK_RECEIVED: begin\n            // BUG: Missing transition to STOP\n            if (timeout) begin\n                state <= ERROR;  // Should go to STOP first\n            end\n        end\n    endcase\nend",
+    "module": "i2c_controller",
+    "test_name": "test_i2c_nack_handling",
+    "failure_cycle": 45678,
+    "severity": "MEDIUM",
+    "bug_type": "PROTOCOL"
+  },
+  {
+    "bug_id": "TB-CPU-008",
+    "title": "Data hazard causing incorrect register value in CPU pipeline",
+    "error_message": "Error: Incorrect register value in execution stage\nAssertion failed: exec_reg_data == expected_reg_data\n  File: cpu_pipeline.sv, line 890\n  Module: cpu_pipeline\n  Stage: EXECUTE\n  Register: r5\n  Expected: 0x1234_5678\n  Actual: 0x0000_0000 (stale value)\n  Instruction sequence:\n    ADD r5, r1, r2    (cycle 123450)\n    SUB r6, r5, r3    (cycle 123451)  // Uses r5 before it's written",
+    "description": "The CPU pipeline is not properly handling data hazards. Register r5 is being read in the SUB instruction before the ADD instruction has written its result. The pipeline forwarding logic is not detecting this dependency.\n\nRelated Code:\n// cpu_pipeline.sv\nalways_ff @(posedge clk) begin\n    // EXECUTE stage\n    if (decode_rs1 == exec_rd && exec_reg_write) begin\n        exec_rs1_data <= exec_result;  // Forwarding\n    end else begin\n        exec_rs1_data <= reg_file[decode_rs1];  // BUG: Doesn't check MEM stage\n    end\nend\n\n// BUG: Missing forwarding from MEM stage",
+    "module": "cpu_pipeline",
+    "test_name": "test_cpu_data_hazard",
+    "failure_cycle": 123456,
+    "severity": "CRITICAL",
+    "bug_type": "FUNCTIONAL"
+  }
+]

@@ -1,0 +1,3002 @@
+[
+  {
+    "bug_id": "SYNTH-7811",
+    "title": "AXI handshake violation in i2c_slave",
+    "error_message": "Assertion failed: AWVALID high without AWREADY",
+    "module": "i2c_slave",
+    "severity": "MEDIUM",
+    "bug_type": "PROTOCOL",
+    "root_cause": "State machine stuck in WAIT state",
+    "symptoms": [
+      "Transaction timeout",
+      "Bus deadlock"
+    ],
+    "test_name": "test_i2c_slave_protocol",
+    "failure_cycle": 23587
+  },
+  {
+    "bug_id": "SYNTH-5023",
+    "title": "Cache coherence violation in memory_controller",
+    "error_message": "Stale data read from cache line",
+    "module": "memory_controller",
+    "severity": "HIGH",
+    "bug_type": "MEMORY",
+    "root_cause": "Snoop response not updating cache state",
+    "symptoms": [
+      "Data corruption",
+      "Incorrect computation"
+    ],
+    "test_name": "test_memory_controller_memory",
+    "failure_cycle": 85838
+  },
+  {
+    "bug_id": "SYNTH-4936",
+    "title": "FIFO overflow in i2c_slave buffer",
+    "error_message": "Fatal: Write to full FIFO",
+    "module": "i2c_slave",
+    "severity": "HIGH",
+    "bug_type": "MEMORY",
+    "root_cause": "Full signal not checked before write",
+    "symptoms": [
+      "Data loss",
+      "Assertion failures"
+    ],
+    "test_name": "test_i2c_slave_memory",
+    "failure_cycle": 48820
+  },
+  {
+    "bug_id": "SYNTH-7603",
+    "title": "Cache coherence violation in pcie_controller",
+    "error_message": "Stale data read from cache line",
+    "module": "pcie_controller",
+    "severity": "MEDIUM",
+    "bug_type": "MEMORY",
+    "root_cause": "Snoop response not updating cache state",
+    "symptoms": [
+      "Data corruption",
+      "Incorrect computation"
+    ],
+    "test_name": "test_pcie_controller_memory",
+    "failure_cycle": 58348
+  },
+  {
+    "bug_id": "SYNTH-7641",
+    "title": "FIFO overflow in spi_master buffer",
+    "error_message": "Fatal: Write to full FIFO",
+    "module": "spi_master",
+    "severity": "CRITICAL",
+    "bug_type": "MEMORY",
+    "root_cause": "Full signal not checked before write",
+    "symptoms": [
+      "Data loss",
+      "Assertion failures"
+    ],
+    "test_name": "test_spi_master_memory",
+    "failure_cycle": 22008
+  },
+  {
+    "bug_id": "SYNTH-2320",
+    "title": "State machine deadlock in timer_module controller",
+    "error_message": "Timeout: FSM stuck in ERROR state",
+    "module": "timer_module",
+    "severity": "LOW",
+    "bug_type": "FUNCTIONAL",
+    "root_cause": "Missing transition condition from DONE",
+    "symptoms": [
+      "Hang",
+      "No response to requests"
+    ],
+    "test_name": "test_timer_module_functional",
+    "failure_cycle": 86872
+  },
+  {
+    "bug_id": "SYNTH-5904",
+    "title": "Race condition in pcie_controller arbiter",
+    "error_message": "Multiple grants asserted simultaneously",
+    "module": "pcie_controller",
+    "severity": "HIGH",
+    "bug_type": "FUNCTIONAL",
+    "root_cause": "Non-atomic grant logic",
+    "symptoms": [
+      "Bus contention",
+      "Data corruption"
+    ],
+    "test_name": "test_pcie_controller_functional",
+    "failure_cycle": 91696
+  },
+  {
+    "bug_id": "SYNTH-9778",
+    "title": "Race condition in uart_tx arbiter",
+    "error_message": "Multiple grants asserted simultaneously",
+    "module": "uart_tx",
+    "severity": "LOW",
+    "bug_type": "FUNCTIONAL",
+    "root_cause": "Non-atomic grant logic",
+    "symptoms": [
+      "Bus contention",
+      "Data corruption"
+    ],
+    "test_name": "test_uart_tx_functional",
+    "failure_cycle": 37533
+  },
+  {
+    "bug_id": "SYNTH-2937",
+    "title": "Hold violation in CDC crossing at memory_controller",
+    "error_message": "Fatal: Metastability detected in clock domain crossing",
+    "module": "memory_controller",
+    "severity": "HIGH",
+    "bug_type": "TIMING",
+    "root_cause": "Missing synchronizer on signal sig_valid_7",
+    "symptoms": [
+      "Random assertion failures",
+      "Data corruption"
+    ],
+    "test_name": "test_memory_controller_timing",
+    "failure_cycle": 56842
+  },
+  {
+    "bug_id": "SYNTH-8714",
+    "title": "AXI handshake violation in dma_engine",
+    "error_message": "Assertion failed: AWVALID high without AWREADY",
+    "module": "dma_engine",
+    "severity": "MEDIUM",
+    "bug_type": "PROTOCOL",
+    "root_cause": "State machine stuck in WAIT state",
+    "symptoms": [
+      "Transaction timeout",
+      "Bus deadlock"
+    ],
+    "test_name": "test_dma_engine_protocol",
+    "failure_cycle": 96372
+  },
+  {
+    "bug_id": "SYNTH-4941",
+    "title": "AXI handshake violation in uart_rx",
+    "error_message": "Assertion failed: AWVALID high without AWREADY",
+    "module": "uart_rx",
+    "severity": "HIGH",
+    "bug_type": "PROTOCOL",
+    "root_cause": "State machine stuck in WAIT state",
+    "symptoms": [
+      "Transaction timeout",
+      "Bus deadlock"
+    ],
+    "test_name": "test_uart_rx_protocol",
+    "failure_cycle": 68065
+  },
+  {
+    "bug_id": "SYNTH-1162",
+    "title": "Setup violation in cache_controller register file",
+    "error_message": "Error: Setup time violation at cycle 94402",
+    "module": "cache_controller",
+    "severity": "HIGH",
+    "bug_type": "TIMING",
+    "root_cause": "Combinational path too long between sig_req_4 and sig_data_7",
+    "symptoms": [
+      "Incorrect register values",
+      "Non-deterministic behavior"
+    ],
+    "test_name": "test_cache_controller_timing",
+    "failure_cycle": 58470
+  },
+  {
+    "bug_id": "SYNTH-5515",
+    "title": "FIFO overflow in memory_controller buffer",
+    "error_message": "Fatal: Write to full FIFO",
+    "module": "memory_controller",
+    "severity": "MEDIUM",
+    "bug_type": "MEMORY",
+    "root_cause": "Full signal not checked before write",
+    "symptoms": [
+      "Data loss",
+      "Assertion failures"
+    ],
+    "test_name": "test_memory_controller_memory",
+    "failure_cycle": 15938
+  },
+  {
+    "bug_id": "SYNTH-7736",
+    "title": "Race condition in interrupt_controller arbiter",
+    "error_message": "Multiple grants asserted simultaneously",
+    "module": "interrupt_controller",
+    "severity": "LOW",
+    "bug_type": "FUNCTIONAL",
+    "root_cause": "Non-atomic grant logic",
+    "symptoms": [
+      "Bus contention",
+      "Data corruption"
+    ],
+    "test_name": "test_interrupt_controller_functional",
+    "failure_cycle": 75915
+  },
+  {
+    "bug_id": "SYNTH-7951",
+    "title": "Hold violation in CDC crossing at timer_module",
+    "error_message": "Fatal: Metastability detected in clock domain crossing",
+    "module": "timer_module",
+    "severity": "CRITICAL",
+    "bug_type": "TIMING",
+    "root_cause": "Missing synchronizer on signal sig_req_7",
+    "symptoms": [
+      "Random assertion failures",
+      "Data corruption"
+    ],
+    "test_name": "test_timer_module_timing",
+    "failure_cycle": 37864
+  },
+  {
+    "bug_id": "SYNTH-3362",
+    "title": "FIFO overflow in memory_controller buffer",
+    "error_message": "Fatal: Write to full FIFO",
+    "module": "memory_controller",
+    "severity": "HIGH",
+    "bug_type": "MEMORY",
+    "root_cause": "Full signal not checked before write",
+    "symptoms": [
+      "Data loss",
+      "Assertion failures"
+    ],
+    "test_name": "test_memory_controller_memory",
+    "failure_cycle": 42844
+  },
+  {
+    "bug_id": "SYNTH-5141",
+    "title": "Race condition in crypto_engine arbiter",
+    "error_message": "Multiple grants asserted simultaneously",
+    "module": "crypto_engine",
+    "severity": "HIGH",
+    "bug_type": "FUNCTIONAL",
+    "root_cause": "Non-atomic grant logic",
+    "symptoms": [
+      "Bus contention",
+      "Data corruption"
+    ],
+    "test_name": "test_crypto_engine_functional",
+    "failure_cycle": 61070
+  },
+  {
+    "bug_id": "SYNTH-5490",
+    "title": "Hold violation in CDC crossing at pcie_controller",
+    "error_message": "Fatal: Metastability detected in clock domain crossing",
+    "module": "pcie_controller",
+    "severity": "HIGH",
+    "bug_type": "TIMING",
+    "root_cause": "Missing synchronizer on signal sig_valid_6",
+    "symptoms": [
+      "Random assertion failures",
+      "Data corruption"
+    ],
+    "test_name": "test_pcie_controller_timing",
+    "failure_cycle": 37642
+  },
+  {
+    "bug_id": "SYNTH-6768",
+    "title": "FIFO overflow in axi_crossbar buffer",
+    "error_message": "Fatal: Write to full FIFO",
+    "module": "axi_crossbar",
+    "severity": "HIGH",
+    "bug_type": "MEMORY",
+    "root_cause": "Full signal not checked before write",
+    "symptoms": [
+      "Data loss",
+      "Assertion failures"
+    ],
+    "test_name": "test_axi_crossbar_memory",
+    "failure_cycle": 66620
+  },
+  {
+    "bug_id": "SYNTH-9476",
+    "title": "Setup violation in interrupt_controller register file",
+    "error_message": "Error: Setup time violation at cycle 4018",
+    "module": "interrupt_controller",
+    "severity": "MEDIUM",
+    "bug_type": "TIMING",
+    "root_cause": "Combinational path too long between sig_req_7 and sig_data_0",
+    "symptoms": [
+      "Incorrect register values",
+      "Non-deterministic behavior"
+    ],
+    "test_name": "test_interrupt_controller_timing",
+    "failure_cycle": 61228
+  },
+  {
+    "bug_id": "SYNTH-7624",
+    "title": "State machine deadlock in memory_controller controller",
+    "error_message": "Timeout: FSM stuck in ACTIVE state",
+    "module": "memory_controller",
+    "severity": "MEDIUM",
+    "bug_type": "FUNCTIONAL",
+    "root_cause": "Missing transition condition from ACTIVE",
+    "symptoms": [
+      "Hang",
+      "No response to requests"
+    ],
+    "test_name": "test_memory_controller_functional",
+    "failure_cycle": 4227
+  },
+  {
+    "bug_id": "SYNTH-2449",
+    "title": "Hold violation in CDC crossing at crypto_engine",
+    "error_message": "Fatal: Metastability detected in clock domain crossing",
+    "module": "crypto_engine",
+    "severity": "HIGH",
+    "bug_type": "TIMING",
+    "root_cause": "Missing synchronizer on signal sig_data_6",
+    "symptoms": [
+      "Random assertion failures",
+      "Data corruption"
+    ],
+    "test_name": "test_crypto_engine_timing",
+    "failure_cycle": 91897
+  },
+  {
+    "bug_id": "SYNTH-3605",
+    "title": "State machine deadlock in crypto_engine controller",
+    "error_message": "Timeout: FSM stuck in WAIT state",
+    "module": "crypto_engine",
+    "severity": "MEDIUM",
+    "bug_type": "FUNCTIONAL",
+    "root_cause": "Missing transition condition from IDLE",
+    "symptoms": [
+      "Hang",
+      "No response to requests"
+    ],
+    "test_name": "test_crypto_engine_functional",
+    "failure_cycle": 47868
+  },
+  {
+    "bug_id": "SYNTH-3482",
+    "title": "Cache coherence violation in memory_controller",
+    "error_message": "Stale data read from cache line",
+    "module": "memory_controller",
+    "severity": "CRITICAL",
+    "bug_type": "MEMORY",
+    "root_cause": "Snoop response not updating cache state",
+    "symptoms": [
+      "Data corruption",
+      "Incorrect computation"
+    ],
+    "test_name": "test_memory_controller_memory",
+    "failure_cycle": 71139
+  },
+  {
+    "bug_id": "SYNTH-5863",
+    "title": "PCIe TLP credit exhaustion in dma_engine",
+    "error_message": "Credit counter underflow detected",
+    "module": "dma_engine",
+    "severity": "MEDIUM",
+    "bug_type": "PROTOCOL",
+    "root_cause": "Missing bounds check on credit decrement",
+    "symptoms": [
+      "Protocol violations",
+      "Transaction drops"
+    ],
+    "test_name": "test_dma_engine_protocol",
+    "failure_cycle": 31289
+  },
+  {
+    "bug_id": "SYNTH-4088",
+    "title": "Hold violation in CDC crossing at dma_engine",
+    "error_message": "Fatal: Metastability detected in clock domain crossing",
+    "module": "dma_engine",
+    "severity": "HIGH",
+    "bug_type": "TIMING",
+    "root_cause": "Missing synchronizer on signal sig_req_0",
+    "symptoms": [
+      "Random assertion failures",
+      "Data corruption"
+    ],
+    "test_name": "test_dma_engine_timing",
+    "failure_cycle": 89916
+  },
+  {
+    "bug_id": "SYNTH-4235",
+    "title": "Setup violation in pcie_controller register file",
+    "error_message": "Error: Setup time violation at cycle 61503",
+    "module": "pcie_controller",
+    "severity": "HIGH",
+    "bug_type": "TIMING",
+    "root_cause": "Combinational path too long between sig_data_1 and sig_ack_9",
+    "symptoms": [
+      "Incorrect register values",
+      "Non-deterministic behavior"
+    ],
+    "test_name": "test_pcie_controller_timing",
+    "failure_cycle": 60854
+  },
+  {
+    "bug_id": "SYNTH-2986",
+    "title": "PCIe TLP credit exhaustion in timer_module",
+    "error_message": "Credit counter underflow detected",
+    "module": "timer_module",
+    "severity": "HIGH",
+    "bug_type": "PROTOCOL",
+    "root_cause": "Missing bounds check on credit decrement",
+    "symptoms": [
+      "Protocol violations",
+      "Transaction drops"
+    ],
+    "test_name": "test_timer_module_protocol",
+    "failure_cycle": 27785
+  },
+  {
+    "bug_id": "SYNTH-5964",
+    "title": "Setup violation in spi_master register file",
+    "error_message": "Error: Setup time violation at cycle 11306",
+    "module": "spi_master",
+    "severity": "HIGH",
+    "bug_type": "TIMING",
+    "root_cause": "Combinational path too long between sig_req_2 and sig_valid_7",
+    "symptoms": [
+      "Incorrect register values",
+      "Non-deterministic behavior"
+    ],
+    "test_name": "test_spi_master_timing",
+    "failure_cycle": 94115
+  },
+  {
+    "bug_id": "SYNTH-1855",
+    "title": "Setup violation in axi_crossbar register file",
+    "error_message": "Error: Setup time violation at cycle 94997",
+    "module": "axi_crossbar",
+    "severity": "HIGH",
+    "bug_type": "TIMING",
+    "root_cause": "Combinational path too long between sig_ack_1 and sig_data_1",
+    "symptoms": [
+      "Incorrect register values",
+      "Non-deterministic behavior"
+    ],
+    "test_name": "test_axi_crossbar_timing",
+    "failure_cycle": 2119
+  },
+  {
+    "bug_id": "SYNTH-7632",
+    "title": "Hold violation in CDC crossing at cache_controller",
+    "error_message": "Fatal: Metastability detected in clock domain crossing",
+    "module": "cache_controller",
+    "severity": "HIGH",
+    "bug_type": "TIMING",
+    "root_cause": "Missing synchronizer on signal sig_ready_2",
+    "symptoms": [
+      "Random assertion failures",
+      "Data corruption"
+    ],
+    "test_name": "test_cache_controller_timing",
+    "failure_cycle": 98049
+  },
+  {
+    "bug_id": "SYNTH-6550",
+    "title": "AXI handshake violation in pcie_controller",
+    "error_message": "Assertion failed: AWVALID high without AWREADY",
+    "module": "pcie_controller",
+    "severity": "HIGH",
+    "bug_type": "PROTOCOL",
+    "root_cause": "State machine stuck in WAIT state",
+    "symptoms": [
+      "Transaction timeout",
+      "Bus deadlock"
+    ],
+    "test_name": "test_pcie_controller_protocol",
+    "failure_cycle": 78761
+  },
+  {
+    "bug_id": "SYNTH-7882",
+    "title": "Race condition in dma_engine arbiter",
+    "error_message": "Multiple grants asserted simultaneously",
+    "module": "dma_engine",
+    "severity": "MEDIUM",
+    "bug_type": "FUNCTIONAL",
+    "root_cause": "Non-atomic grant logic",
+    "symptoms": [
+      "Bus contention",
+      "Data corruption"
+    ],
+    "test_name": "test_dma_engine_functional",
+    "failure_cycle": 39814
+  },
+  {
+    "bug_id": "SYNTH-8846",
+    "title": "Race condition in timer_module arbiter",
+    "error_message": "Multiple grants asserted simultaneously",
+    "module": "timer_module",
+    "severity": "MEDIUM",
+    "bug_type": "FUNCTIONAL",
+    "root_cause": "Non-atomic grant logic",
+    "symptoms": [
+      "Bus contention",
+      "Data corruption"
+    ],
+    "test_name": "test_timer_module_functional",
+    "failure_cycle": 65417
+  },
+  {
+    "bug_id": "SYNTH-8841",
+    "title": "Setup violation in timer_module register file",
+    "error_message": "Error: Setup time violation at cycle 70623",
+    "module": "timer_module",
+    "severity": "MEDIUM",
+    "bug_type": "TIMING",
+    "root_cause": "Combinational path too long between sig_req_1 and sig_valid_9",
+    "symptoms": [
+      "Incorrect register values",
+      "Non-deterministic behavior"
+    ],
+    "test_name": "test_timer_module_timing",
+    "failure_cycle": 31004
+  },
+  {
+    "bug_id": "SYNTH-2159",
+    "title": "FIFO overflow in memory_controller buffer",
+    "error_message": "Fatal: Write to full FIFO",
+    "module": "memory_controller",
+    "severity": "CRITICAL",
+    "bug_type": "MEMORY",
+    "root_cause": "Full signal not checked before write",
+    "symptoms": [
+      "Data loss",
+      "Assertion failures"
+    ],
+    "test_name": "test_memory_controller_memory",
+    "failure_cycle": 23478
+  },
+  {
+    "bug_id": "SYNTH-2329",
+    "title": "Setup violation in uart_rx register file",
+    "error_message": "Error: Setup time violation at cycle 94947",
+    "module": "uart_rx",
+    "severity": "HIGH",
+    "bug_type": "TIMING",
+    "root_cause": "Combinational path too long between sig_ack_4 and sig_ack_1",
+    "symptoms": [
+      "Incorrect register values",
+      "Non-deterministic behavior"
+    ],
+    "test_name": "test_uart_rx_timing",
+    "failure_cycle": 66267
+  },
+  {
+    "bug_id": "SYNTH-3673",
+    "title": "Setup violation in uart_tx register file",
+    "error_message": "Error: Setup time violation at cycle 32175",
+    "module": "uart_tx",
+    "severity": "MEDIUM",
+    "bug_type": "TIMING",
+    "root_cause": "Combinational path too long between sig_valid_5 and sig_req_2",
+    "symptoms": [
+      "Incorrect register values",
+      "Non-deterministic behavior"
+    ],
+    "test_name": "test_uart_tx_timing",
+    "failure_cycle": 27302
+  },
+  {
+    "bug_id": "SYNTH-3438",
+    "title": "FIFO overflow in crypto_engine buffer",
+    "error_message": "Fatal: Write to full FIFO",
+    "module": "crypto_engine",
+    "severity": "HIGH",
+    "bug_type": "MEMORY",
+    "root_cause": "Full signal not checked before write",
+    "symptoms": [
+      "Data loss",
+      "Assertion failures"
+    ],
+    "test_name": "test_crypto_engine_memory",
+    "failure_cycle": 8717
+  },
+  {
+    "bug_id": "SYNTH-1442",
+    "title": "Hold violation in CDC crossing at cache_controller",
+    "error_message": "Fatal: Metastability detected in clock domain crossing",
+    "module": "cache_controller",
+    "severity": "MEDIUM",
+    "bug_type": "TIMING",
+    "root_cause": "Missing synchronizer on signal sig_data_2",
+    "symptoms": [
+      "Random assertion failures",
+      "Data corruption"
+    ],
+    "test_name": "test_cache_controller_timing",
+    "failure_cycle": 49789
+  },
+  {
+    "bug_id": "SYNTH-6705",
+    "title": "AXI handshake violation in uart_rx",
+    "error_message": "Assertion failed: AWVALID high without AWREADY",
+    "module": "uart_rx",
+    "severity": "HIGH",
+    "bug_type": "PROTOCOL",
+    "root_cause": "State machine stuck in WAIT state",
+    "symptoms": [
+      "Transaction timeout",
+      "Bus deadlock"
+    ],
+    "test_name": "test_uart_rx_protocol",
+    "failure_cycle": 64529
+  },
+  {
+    "bug_id": "SYNTH-8369",
+    "title": "AXI handshake violation in pcie_controller",
+    "error_message": "Assertion failed: AWVALID high without AWREADY",
+    "module": "pcie_controller",
+    "severity": "MEDIUM",
+    "bug_type": "PROTOCOL",
+    "root_cause": "State machine stuck in WAIT state",
+    "symptoms": [
+      "Transaction timeout",
+      "Bus deadlock"
+    ],
+    "test_name": "test_pcie_controller_protocol",
+    "failure_cycle": 71776
+  },
+  {
+    "bug_id": "SYNTH-3229",
+    "title": "Race condition in pcie_controller arbiter",
+    "error_message": "Multiple grants asserted simultaneously",
+    "module": "pcie_controller",
+    "severity": "LOW",
+    "bug_type": "FUNCTIONAL",
+    "root_cause": "Non-atomic grant logic",
+    "symptoms": [
+      "Bus contention",
+      "Data corruption"
+    ],
+    "test_name": "test_pcie_controller_functional",
+    "failure_cycle": 93406
+  },
+  {
+    "bug_id": "SYNTH-5313",
+    "title": "AXI handshake violation in i2c_slave",
+    "error_message": "Assertion failed: AWVALID high without AWREADY",
+    "module": "i2c_slave",
+    "severity": "MEDIUM",
+    "bug_type": "PROTOCOL",
+    "root_cause": "State machine stuck in WAIT state",
+    "symptoms": [
+      "Transaction timeout",
+      "Bus deadlock"
+    ],
+    "test_name": "test_i2c_slave_protocol",
+    "failure_cycle": 62651
+  },
+  {
+    "bug_id": "SYNTH-5220",
+    "title": "Setup violation in uart_rx register file",
+    "error_message": "Error: Setup time violation at cycle 49747",
+    "module": "uart_rx",
+    "severity": "MEDIUM",
+    "bug_type": "TIMING",
+    "root_cause": "Combinational path too long between sig_ready_3 and sig_valid_0",
+    "symptoms": [
+      "Incorrect register values",
+      "Non-deterministic behavior"
+    ],
+    "test_name": "test_uart_rx_timing",
+    "failure_cycle": 25829
+  },
+  {
+    "bug_id": "SYNTH-2435",
+    "title": "PCIe TLP credit exhaustion in memory_controller",
+    "error_message": "Credit counter underflow detected",
+    "module": "memory_controller",
+    "severity": "MEDIUM",
+    "bug_type": "PROTOCOL",
+    "root_cause": "Missing bounds check on credit decrement",
+    "symptoms": [
+      "Protocol violations",
+      "Transaction drops"
+    ],
+    "test_name": "test_memory_controller_protocol",
+    "failure_cycle": 12696
+  },
+  {
+    "bug_id": "SYNTH-8454",
+    "title": "State machine deadlock in uart_tx controller",
+    "error_message": "Timeout: FSM stuck in ACTIVE state",
+    "module": "uart_tx",
+    "severity": "HIGH",
+    "bug_type": "FUNCTIONAL",
+    "root_cause": "Missing transition condition from WAIT",
+    "symptoms": [
+      "Hang",
+      "No response to requests"
+    ],
+    "test_name": "test_uart_tx_functional",
+    "failure_cycle": 91748
+  },
+  {
+    "bug_id": "SYNTH-8375",
+    "title": "Hold violation in CDC crossing at cache_controller",
+    "error_message": "Fatal: Metastability detected in clock domain crossing",
+    "module": "cache_controller",
+    "severity": "CRITICAL",
+    "bug_type": "TIMING",
+    "root_cause": "Missing synchronizer on signal sig_req_1",
+    "symptoms": [
+      "Random assertion failures",
+      "Data corruption"
+    ],
+    "test_name": "test_cache_controller_timing",
+    "failure_cycle": 66975
+  },
+  {
+    "bug_id": "SYNTH-2423",
+    "title": "Setup violation in interrupt_controller register file",
+    "error_message": "Error: Setup time violation at cycle 15710",
+    "module": "interrupt_controller",
+    "severity": "MEDIUM",
+    "bug_type": "TIMING",
+    "root_cause": "Combinational path too long between sig_data_8 and sig_req_0",
+    "symptoms": [
+      "Incorrect register values",
+      "Non-deterministic behavior"
+    ],
+    "test_name": "test_interrupt_controller_timing",
+    "failure_cycle": 99195
+  },
+  {
+    "bug_id": "SYNTH-4750",
+    "title": "Setup violation in dma_engine register file",
+    "error_message": "Error: Setup time violation at cycle 26176",
+    "module": "dma_engine",
+    "severity": "HIGH",
+    "bug_type": "TIMING",
+    "root_cause": "Combinational path too long between sig_data_3 and sig_valid_3",
+    "symptoms": [
+      "Incorrect register values",
+      "Non-deterministic behavior"
+    ],
+    "test_name": "test_dma_engine_timing",
+    "failure_cycle": 43766
+  },
+  {
+    "bug_id": "SYNTH-5002",
+    "title": "AXI handshake violation in cache_controller",
+    "error_message": "Assertion failed: AWVALID high without AWREADY",
+    "module": "cache_controller",
+    "severity": "MEDIUM",
+    "bug_type": "PROTOCOL",
+    "root_cause": "State machine stuck in WAIT state",
+    "symptoms": [
+      "Transaction timeout",
+      "Bus deadlock"
+    ],
+    "test_name": "test_cache_controller_protocol",
+    "failure_cycle": 37609
+  },
+  {
+    "bug_id": "SYNTH-5074",
+    "title": "Setup violation in memory_controller register file",
+    "error_message": "Error: Setup time violation at cycle 23052",
+    "module": "memory_controller",
+    "severity": "HIGH",
+    "bug_type": "TIMING",
+    "root_cause": "Combinational path too long between sig_data_1 and sig_data_3",
+    "symptoms": [
+      "Incorrect register values",
+      "Non-deterministic behavior"
+    ],
+    "test_name": "test_memory_controller_timing",
+    "failure_cycle": 35841
+  },
+  {
+    "bug_id": "SYNTH-8644",
+    "title": "FIFO overflow in uart_rx buffer",
+    "error_message": "Fatal: Write to full FIFO",
+    "module": "uart_rx",
+    "severity": "HIGH",
+    "bug_type": "MEMORY",
+    "root_cause": "Full signal not checked before write",
+    "symptoms": [
+      "Data loss",
+      "Assertion failures"
+    ],
+    "test_name": "test_uart_rx_memory",
+    "failure_cycle": 15744
+  },
+  {
+    "bug_id": "SYNTH-2461",
+    "title": "State machine deadlock in memory_controller controller",
+    "error_message": "Timeout: FSM stuck in ACTIVE state",
+    "module": "memory_controller",
+    "severity": "MEDIUM",
+    "bug_type": "FUNCTIONAL",
+    "root_cause": "Missing transition condition from ACTIVE",
+    "symptoms": [
+      "Hang",
+      "No response to requests"
+    ],
+    "test_name": "test_memory_controller_functional",
+    "failure_cycle": 77709
+  },
+  {
+    "bug_id": "SYNTH-9284",
+    "title": "Cache coherence violation in interrupt_controller",
+    "error_message": "Stale data read from cache line",
+    "module": "interrupt_controller",
+    "severity": "MEDIUM",
+    "bug_type": "MEMORY",
+    "root_cause": "Snoop response not updating cache state",
+    "symptoms": [
+      "Data corruption",
+      "Incorrect computation"
+    ],
+    "test_name": "test_interrupt_controller_memory",
+    "failure_cycle": 85305
+  },
+  {
+    "bug_id": "SYNTH-1558",
+    "title": "State machine deadlock in dma_engine controller",
+    "error_message": "Timeout: FSM stuck in DONE state",
+    "module": "dma_engine",
+    "severity": "LOW",
+    "bug_type": "FUNCTIONAL",
+    "root_cause": "Missing transition condition from IDLE",
+    "symptoms": [
+      "Hang",
+      "No response to requests"
+    ],
+    "test_name": "test_dma_engine_functional",
+    "failure_cycle": 62173
+  },
+  {
+    "bug_id": "SYNTH-7107",
+    "title": "PCIe TLP credit exhaustion in interrupt_controller",
+    "error_message": "Credit counter underflow detected",
+    "module": "interrupt_controller",
+    "severity": "HIGH",
+    "bug_type": "PROTOCOL",
+    "root_cause": "Missing bounds check on credit decrement",
+    "symptoms": [
+      "Protocol violations",
+      "Transaction drops"
+    ],
+    "test_name": "test_interrupt_controller_protocol",
+    "failure_cycle": 33183
+  },
+  {
+    "bug_id": "SYNTH-4795",
+    "title": "State machine deadlock in axi_crossbar controller",
+    "error_message": "Timeout: FSM stuck in WAIT state",
+    "module": "axi_crossbar",
+    "severity": "MEDIUM",
+    "bug_type": "FUNCTIONAL",
+    "root_cause": "Missing transition condition from DONE",
+    "symptoms": [
+      "Hang",
+      "No response to requests"
+    ],
+    "test_name": "test_axi_crossbar_functional",
+    "failure_cycle": 41280
+  },
+  {
+    "bug_id": "SYNTH-9773",
+    "title": "PCIe TLP credit exhaustion in pcie_controller",
+    "error_message": "Credit counter underflow detected",
+    "module": "pcie_controller",
+    "severity": "MEDIUM",
+    "bug_type": "PROTOCOL",
+    "root_cause": "Missing bounds check on credit decrement",
+    "symptoms": [
+      "Protocol violations",
+      "Transaction drops"
+    ],
+    "test_name": "test_pcie_controller_protocol",
+    "failure_cycle": 66249
+  },
+  {
+    "bug_id": "SYNTH-8616",
+    "title": "PCIe TLP credit exhaustion in uart_rx",
+    "error_message": "Credit counter underflow detected",
+    "module": "uart_rx",
+    "severity": "HIGH",
+    "bug_type": "PROTOCOL",
+    "root_cause": "Missing bounds check on credit decrement",
+    "symptoms": [
+      "Protocol violations",
+      "Transaction drops"
+    ],
+    "test_name": "test_uart_rx_protocol",
+    "failure_cycle": 60621
+  },
+  {
+    "bug_id": "SYNTH-3251",
+    "title": "Race condition in spi_master arbiter",
+    "error_message": "Multiple grants asserted simultaneously",
+    "module": "spi_master",
+    "severity": "MEDIUM",
+    "bug_type": "FUNCTIONAL",
+    "root_cause": "Non-atomic grant logic",
+    "symptoms": [
+      "Bus contention",
+      "Data corruption"
+    ],
+    "test_name": "test_spi_master_functional",
+    "failure_cycle": 74948
+  },
+  {
+    "bug_id": "SYNTH-3811",
+    "title": "Race condition in crypto_engine arbiter",
+    "error_message": "Multiple grants asserted simultaneously",
+    "module": "crypto_engine",
+    "severity": "MEDIUM",
+    "bug_type": "FUNCTIONAL",
+    "root_cause": "Non-atomic grant logic",
+    "symptoms": [
+      "Bus contention",
+      "Data corruption"
+    ],
+    "test_name": "test_crypto_engine_functional",
+    "failure_cycle": 43741
+  },
+  {
+    "bug_id": "SYNTH-5923",
+    "title": "Hold violation in CDC crossing at i2c_slave",
+    "error_message": "Fatal: Metastability detected in clock domain crossing",
+    "module": "i2c_slave",
+    "severity": "HIGH",
+    "bug_type": "TIMING",
+    "root_cause": "Missing synchronizer on signal sig_ack_9",
+    "symptoms": [
+      "Random assertion failures",
+      "Data corruption"
+    ],
+    "test_name": "test_i2c_slave_timing",
+    "failure_cycle": 68950
+  },
+  {
+    "bug_id": "SYNTH-8078",
+    "title": "FIFO overflow in axi_crossbar buffer",
+    "error_message": "Fatal: Write to full FIFO",
+    "module": "axi_crossbar",
+    "severity": "HIGH",
+    "bug_type": "MEMORY",
+    "root_cause": "Full signal not checked before write",
+    "symptoms": [
+      "Data loss",
+      "Assertion failures"
+    ],
+    "test_name": "test_axi_crossbar_memory",
+    "failure_cycle": 63329
+  },
+  {
+    "bug_id": "SYNTH-3223",
+    "title": "Hold violation in CDC crossing at crypto_engine",
+    "error_message": "Fatal: Metastability detected in clock domain crossing",
+    "module": "crypto_engine",
+    "severity": "MEDIUM",
+    "bug_type": "TIMING",
+    "root_cause": "Missing synchronizer on signal sig_req_7",
+    "symptoms": [
+      "Random assertion failures",
+      "Data corruption"
+    ],
+    "test_name": "test_crypto_engine_timing",
+    "failure_cycle": 21788
+  },
+  {
+    "bug_id": "SYNTH-7403",
+    "title": "State machine deadlock in interrupt_controller controller",
+    "error_message": "Timeout: FSM stuck in IDLE state",
+    "module": "interrupt_controller",
+    "severity": "HIGH",
+    "bug_type": "FUNCTIONAL",
+    "root_cause": "Missing transition condition from IDLE",
+    "symptoms": [
+      "Hang",
+      "No response to requests"
+    ],
+    "test_name": "test_interrupt_controller_functional",
+    "failure_cycle": 74476
+  },
+  {
+    "bug_id": "SYNTH-1699",
+    "title": "Hold violation in CDC crossing at interrupt_controller",
+    "error_message": "Fatal: Metastability detected in clock domain crossing",
+    "module": "interrupt_controller",
+    "severity": "HIGH",
+    "bug_type": "TIMING",
+    "root_cause": "Missing synchronizer on signal sig_ready_4",
+    "symptoms": [
+      "Random assertion failures",
+      "Data corruption"
+    ],
+    "test_name": "test_interrupt_controller_timing",
+    "failure_cycle": 13691
+  },
+  {
+    "bug_id": "SYNTH-6386",
+    "title": "Cache coherence violation in pcie_controller",
+    "error_message": "Stale data read from cache line",
+    "module": "pcie_controller",
+    "severity": "HIGH",
+    "bug_type": "MEMORY",
+    "root_cause": "Snoop response not updating cache state",
+    "symptoms": [
+      "Data corruption",
+      "Incorrect computation"
+    ],
+    "test_name": "test_pcie_controller_memory",
+    "failure_cycle": 14491
+  },
+  {
+    "bug_id": "SYNTH-4363",
+    "title": "FIFO overflow in memory_controller buffer",
+    "error_message": "Fatal: Write to full FIFO",
+    "module": "memory_controller",
+    "severity": "CRITICAL",
+    "bug_type": "MEMORY",
+    "root_cause": "Full signal not checked before write",
+    "symptoms": [
+      "Data loss",
+      "Assertion failures"
+    ],
+    "test_name": "test_memory_controller_memory",
+    "failure_cycle": 50440
+  },
+  {
+    "bug_id": "SYNTH-3607",
+    "title": "Hold violation in CDC crossing at uart_tx",
+    "error_message": "Fatal: Metastability detected in clock domain crossing",
+    "module": "uart_tx",
+    "severity": "CRITICAL",
+    "bug_type": "TIMING",
+    "root_cause": "Missing synchronizer on signal sig_ready_9",
+    "symptoms": [
+      "Random assertion failures",
+      "Data corruption"
+    ],
+    "test_name": "test_uart_tx_timing",
+    "failure_cycle": 40932
+  },
+  {
+    "bug_id": "SYNTH-9952",
+    "title": "Hold violation in CDC crossing at memory_controller",
+    "error_message": "Fatal: Metastability detected in clock domain crossing",
+    "module": "memory_controller",
+    "severity": "MEDIUM",
+    "bug_type": "TIMING",
+    "root_cause": "Missing synchronizer on signal sig_ack_2",
+    "symptoms": [
+      "Random assertion failures",
+      "Data corruption"
+    ],
+    "test_name": "test_memory_controller_timing",
+    "failure_cycle": 69051
+  },
+  {
+    "bug_id": "SYNTH-5178",
+    "title": "AXI handshake violation in memory_controller",
+    "error_message": "Assertion failed: AWVALID high without AWREADY",
+    "module": "memory_controller",
+    "severity": "HIGH",
+    "bug_type": "PROTOCOL",
+    "root_cause": "State machine stuck in WAIT state",
+    "symptoms": [
+      "Transaction timeout",
+      "Bus deadlock"
+    ],
+    "test_name": "test_memory_controller_protocol",
+    "failure_cycle": 74829
+  },
+  {
+    "bug_id": "SYNTH-3711",
+    "title": "PCIe TLP credit exhaustion in axi_crossbar",
+    "error_message": "Credit counter underflow detected",
+    "module": "axi_crossbar",
+    "severity": "MEDIUM",
+    "bug_type": "PROTOCOL",
+    "root_cause": "Missing bounds check on credit decrement",
+    "symptoms": [
+      "Protocol violations",
+      "Transaction drops"
+    ],
+    "test_name": "test_axi_crossbar_protocol",
+    "failure_cycle": 67724
+  },
+  {
+    "bug_id": "SYNTH-7044",
+    "title": "Setup violation in pcie_controller register file",
+    "error_message": "Error: Setup time violation at cycle 91447",
+    "module": "pcie_controller",
+    "severity": "HIGH",
+    "bug_type": "TIMING",
+    "root_cause": "Combinational path too long between sig_valid_6 and sig_valid_5",
+    "symptoms": [
+      "Incorrect register values",
+      "Non-deterministic behavior"
+    ],
+    "test_name": "test_pcie_controller_timing",
+    "failure_cycle": 50441
+  },
+  {
+    "bug_id": "SYNTH-8644",
+    "title": "State machine deadlock in pcie_controller controller",
+    "error_message": "Timeout: FSM stuck in ACTIVE state",
+    "module": "pcie_controller",
+    "severity": "MEDIUM",
+    "bug_type": "FUNCTIONAL",
+    "root_cause": "Missing transition condition from ERROR",
+    "symptoms": [
+      "Hang",
+      "No response to requests"
+    ],
+    "test_name": "test_pcie_controller_functional",
+    "failure_cycle": 15881
+  },
+  {
+    "bug_id": "SYNTH-1321",
+    "title": "Setup violation in pcie_controller register file",
+    "error_message": "Error: Setup time violation at cycle 38701",
+    "module": "pcie_controller",
+    "severity": "CRITICAL",
+    "bug_type": "TIMING",
+    "root_cause": "Combinational path too long between sig_data_0 and sig_valid_0",
+    "symptoms": [
+      "Incorrect register values",
+      "Non-deterministic behavior"
+    ],
+    "test_name": "test_pcie_controller_timing",
+    "failure_cycle": 22648
+  },
+  {
+    "bug_id": "SYNTH-9140",
+    "title": "Cache coherence violation in cache_controller",
+    "error_message": "Stale data read from cache line",
+    "module": "cache_controller",
+    "severity": "MEDIUM",
+    "bug_type": "MEMORY",
+    "root_cause": "Snoop response not updating cache state",
+    "symptoms": [
+      "Data corruption",
+      "Incorrect computation"
+    ],
+    "test_name": "test_cache_controller_memory",
+    "failure_cycle": 79374
+  },
+  {
+    "bug_id": "SYNTH-7730",
+    "title": "State machine deadlock in crypto_engine controller",
+    "error_message": "Timeout: FSM stuck in IDLE state",
+    "module": "crypto_engine",
+    "severity": "MEDIUM",
+    "bug_type": "FUNCTIONAL",
+    "root_cause": "Missing transition condition from WAIT",
+    "symptoms": [
+      "Hang",
+      "No response to requests"
+    ],
+    "test_name": "test_crypto_engine_functional",
+    "failure_cycle": 9668
+  },
+  {
+    "bug_id": "SYNTH-2428",
+    "title": "State machine deadlock in i2c_slave controller",
+    "error_message": "Timeout: FSM stuck in ERROR state",
+    "module": "i2c_slave",
+    "severity": "MEDIUM",
+    "bug_type": "FUNCTIONAL",
+    "root_cause": "Missing transition condition from IDLE",
+    "symptoms": [
+      "Hang",
+      "No response to requests"
+    ],
+    "test_name": "test_i2c_slave_functional",
+    "failure_cycle": 2291
+  },
+  {
+    "bug_id": "SYNTH-2143",
+    "title": "Race condition in interrupt_controller arbiter",
+    "error_message": "Multiple grants asserted simultaneously",
+    "module": "interrupt_controller",
+    "severity": "HIGH",
+    "bug_type": "FUNCTIONAL",
+    "root_cause": "Non-atomic grant logic",
+    "symptoms": [
+      "Bus contention",
+      "Data corruption"
+    ],
+    "test_name": "test_interrupt_controller_functional",
+    "failure_cycle": 30282
+  },
+  {
+    "bug_id": "SYNTH-9080",
+    "title": "FIFO overflow in timer_module buffer",
+    "error_message": "Fatal: Write to full FIFO",
+    "module": "timer_module",
+    "severity": "CRITICAL",
+    "bug_type": "MEMORY",
+    "root_cause": "Full signal not checked before write",
+    "symptoms": [
+      "Data loss",
+      "Assertion failures"
+    ],
+    "test_name": "test_timer_module_memory",
+    "failure_cycle": 21632
+  },
+  {
+    "bug_id": "SYNTH-8350",
+    "title": "Race condition in uart_tx arbiter",
+    "error_message": "Multiple grants asserted simultaneously",
+    "module": "uart_tx",
+    "severity": "LOW",
+    "bug_type": "FUNCTIONAL",
+    "root_cause": "Non-atomic grant logic",
+    "symptoms": [
+      "Bus contention",
+      "Data corruption"
+    ],
+    "test_name": "test_uart_tx_functional",
+    "failure_cycle": 9489
+  },
+  {
+    "bug_id": "SYNTH-5078",
+    "title": "FIFO overflow in uart_tx buffer",
+    "error_message": "Fatal: Write to full FIFO",
+    "module": "uart_tx",
+    "severity": "HIGH",
+    "bug_type": "MEMORY",
+    "root_cause": "Full signal not checked before write",
+    "symptoms": [
+      "Data loss",
+      "Assertion failures"
+    ],
+    "test_name": "test_uart_tx_memory",
+    "failure_cycle": 2360
+  },
+  {
+    "bug_id": "SYNTH-8985",
+    "title": "State machine deadlock in spi_master controller",
+    "error_message": "Timeout: FSM stuck in ACTIVE state",
+    "module": "spi_master",
+    "severity": "LOW",
+    "bug_type": "FUNCTIONAL",
+    "root_cause": "Missing transition condition from DONE",
+    "symptoms": [
+      "Hang",
+      "No response to requests"
+    ],
+    "test_name": "test_spi_master_functional",
+    "failure_cycle": 55733
+  },
+  {
+    "bug_id": "SYNTH-2180",
+    "title": "Race condition in memory_controller arbiter",
+    "error_message": "Multiple grants asserted simultaneously",
+    "module": "memory_controller",
+    "severity": "MEDIUM",
+    "bug_type": "FUNCTIONAL",
+    "root_cause": "Non-atomic grant logic",
+    "symptoms": [
+      "Bus contention",
+      "Data corruption"
+    ],
+    "test_name": "test_memory_controller_functional",
+    "failure_cycle": 35060
+  },
+  {
+    "bug_id": "SYNTH-7558",
+    "title": "State machine deadlock in timer_module controller",
+    "error_message": "Timeout: FSM stuck in WAIT state",
+    "module": "timer_module",
+    "severity": "MEDIUM",
+    "bug_type": "FUNCTIONAL",
+    "root_cause": "Missing transition condition from IDLE",
+    "symptoms": [
+      "Hang",
+      "No response to requests"
+    ],
+    "test_name": "test_timer_module_functional",
+    "failure_cycle": 1210
+  },
+  {
+    "bug_id": "SYNTH-2998",
+    "title": "AXI handshake violation in memory_controller",
+    "error_message": "Assertion failed: AWVALID high without AWREADY",
+    "module": "memory_controller",
+    "severity": "MEDIUM",
+    "bug_type": "PROTOCOL",
+    "root_cause": "State machine stuck in WAIT state",
+    "symptoms": [
+      "Transaction timeout",
+      "Bus deadlock"
+    ],
+    "test_name": "test_memory_controller_protocol",
+    "failure_cycle": 39309
+  },
+  {
+    "bug_id": "SYNTH-5366",
+    "title": "State machine deadlock in spi_master controller",
+    "error_message": "Timeout: FSM stuck in IDLE state",
+    "module": "spi_master",
+    "severity": "LOW",
+    "bug_type": "FUNCTIONAL",
+    "root_cause": "Missing transition condition from WAIT",
+    "symptoms": [
+      "Hang",
+      "No response to requests"
+    ],
+    "test_name": "test_spi_master_functional",
+    "failure_cycle": 69817
+  },
+  {
+    "bug_id": "SYNTH-4185",
+    "title": "Cache coherence violation in i2c_slave",
+    "error_message": "Stale data read from cache line",
+    "module": "i2c_slave",
+    "severity": "CRITICAL",
+    "bug_type": "MEMORY",
+    "root_cause": "Snoop response not updating cache state",
+    "symptoms": [
+      "Data corruption",
+      "Incorrect computation"
+    ],
+    "test_name": "test_i2c_slave_memory",
+    "failure_cycle": 67101
+  },
+  {
+    "bug_id": "SYNTH-3136",
+    "title": "AXI handshake violation in i2c_slave",
+    "error_message": "Assertion failed: AWVALID high without AWREADY",
+    "module": "i2c_slave",
+    "severity": "HIGH",
+    "bug_type": "PROTOCOL",
+    "root_cause": "State machine stuck in WAIT state",
+    "symptoms": [
+      "Transaction timeout",
+      "Bus deadlock"
+    ],
+    "test_name": "test_i2c_slave_protocol",
+    "failure_cycle": 14196
+  },
+  {
+    "bug_id": "SYNTH-5248",
+    "title": "PCIe TLP credit exhaustion in axi_crossbar",
+    "error_message": "Credit counter underflow detected",
+    "module": "axi_crossbar",
+    "severity": "HIGH",
+    "bug_type": "PROTOCOL",
+    "root_cause": "Missing bounds check on credit decrement",
+    "symptoms": [
+      "Protocol violations",
+      "Transaction drops"
+    ],
+    "test_name": "test_axi_crossbar_protocol",
+    "failure_cycle": 74141
+  },
+  {
+    "bug_id": "SYNTH-2976",
+    "title": "FIFO overflow in axi_crossbar buffer",
+    "error_message": "Fatal: Write to full FIFO",
+    "module": "axi_crossbar",
+    "severity": "MEDIUM",
+    "bug_type": "MEMORY",
+    "root_cause": "Full signal not checked before write",
+    "symptoms": [
+      "Data loss",
+      "Assertion failures"
+    ],
+    "test_name": "test_axi_crossbar_memory",
+    "failure_cycle": 36249
+  },
+  {
+    "bug_id": "SYNTH-5291",
+    "title": "PCIe TLP credit exhaustion in timer_module",
+    "error_message": "Credit counter underflow detected",
+    "module": "timer_module",
+    "severity": "HIGH",
+    "bug_type": "PROTOCOL",
+    "root_cause": "Missing bounds check on credit decrement",
+    "symptoms": [
+      "Protocol violations",
+      "Transaction drops"
+    ],
+    "test_name": "test_timer_module_protocol",
+    "failure_cycle": 66736
+  },
+  {
+    "bug_id": "SYNTH-4669",
+    "title": "FIFO overflow in memory_controller buffer",
+    "error_message": "Fatal: Write to full FIFO",
+    "module": "memory_controller",
+    "severity": "HIGH",
+    "bug_type": "MEMORY",
+    "root_cause": "Full signal not checked before write",
+    "symptoms": [
+      "Data loss",
+      "Assertion failures"
+    ],
+    "test_name": "test_memory_controller_memory",
+    "failure_cycle": 32883
+  },
+  {
+    "bug_id": "SYNTH-5495",
+    "title": "State machine deadlock in pcie_controller controller",
+    "error_message": "Timeout: FSM stuck in WAIT state",
+    "module": "pcie_controller",
+    "severity": "HIGH",
+    "bug_type": "FUNCTIONAL",
+    "root_cause": "Missing transition condition from WAIT",
+    "symptoms": [
+      "Hang",
+      "No response to requests"
+    ],
+    "test_name": "test_pcie_controller_functional",
+    "failure_cycle": 13364
+  },
+  {
+    "bug_id": "SYNTH-6542",
+    "title": "Setup violation in uart_tx register file",
+    "error_message": "Error: Setup time violation at cycle 51470",
+    "module": "uart_tx",
+    "severity": "HIGH",
+    "bug_type": "TIMING",
+    "root_cause": "Combinational path too long between sig_req_0 and sig_ready_3",
+    "symptoms": [
+      "Incorrect register values",
+      "Non-deterministic behavior"
+    ],
+    "test_name": "test_uart_tx_timing",
+    "failure_cycle": 67092
+  },
+  {
+    "bug_id": "SYNTH-6942",
+    "title": "FIFO overflow in memory_controller buffer",
+    "error_message": "Fatal: Write to full FIFO",
+    "module": "memory_controller",
+    "severity": "HIGH",
+    "bug_type": "MEMORY",
+    "root_cause": "Full signal not checked before write",
+    "symptoms": [
+      "Data loss",
+      "Assertion failures"
+    ],
+    "test_name": "test_memory_controller_memory",
+    "failure_cycle": 92758
+  },
+  {
+    "bug_id": "SYNTH-8734",
+    "title": "State machine deadlock in memory_controller controller",
+    "error_message": "Timeout: FSM stuck in ACTIVE state",
+    "module": "memory_controller",
+    "severity": "MEDIUM",
+    "bug_type": "FUNCTIONAL",
+    "root_cause": "Missing transition condition from IDLE",
+    "symptoms": [
+      "Hang",
+      "No response to requests"
+    ],
+    "test_name": "test_memory_controller_functional",
+    "failure_cycle": 77438
+  },
+  {
+    "bug_id": "SYNTH-4969",
+    "title": "FIFO overflow in uart_tx buffer",
+    "error_message": "Fatal: Write to full FIFO",
+    "module": "uart_tx",
+    "severity": "HIGH",
+    "bug_type": "MEMORY",
+    "root_cause": "Full signal not checked before write",
+    "symptoms": [
+      "Data loss",
+      "Assertion failures"
+    ],
+    "test_name": "test_uart_tx_memory",
+    "failure_cycle": 57794
+  },
+  {
+    "bug_id": "SYNTH-6026",
+    "title": "FIFO overflow in dma_engine buffer",
+    "error_message": "Fatal: Write to full FIFO",
+    "module": "dma_engine",
+    "severity": "HIGH",
+    "bug_type": "MEMORY",
+    "root_cause": "Full signal not checked before write",
+    "symptoms": [
+      "Data loss",
+      "Assertion failures"
+    ],
+    "test_name": "test_dma_engine_memory",
+    "failure_cycle": 59006
+  },
+  {
+    "bug_id": "SYNTH-1155",
+    "title": "AXI handshake violation in cache_controller",
+    "error_message": "Assertion failed: AWVALID high without AWREADY",
+    "module": "cache_controller",
+    "severity": "HIGH",
+    "bug_type": "PROTOCOL",
+    "root_cause": "State machine stuck in WAIT state",
+    "symptoms": [
+      "Transaction timeout",
+      "Bus deadlock"
+    ],
+    "test_name": "test_cache_controller_protocol",
+    "failure_cycle": 70801
+  },
+  {
+    "bug_id": "SYNTH-6052",
+    "title": "Cache coherence violation in cache_controller",
+    "error_message": "Stale data read from cache line",
+    "module": "cache_controller",
+    "severity": "MEDIUM",
+    "bug_type": "MEMORY",
+    "root_cause": "Snoop response not updating cache state",
+    "symptoms": [
+      "Data corruption",
+      "Incorrect computation"
+    ],
+    "test_name": "test_cache_controller_memory",
+    "failure_cycle": 46699
+  },
+  {
+    "bug_id": "SYNTH-9567",
+    "title": "State machine deadlock in i2c_slave controller",
+    "error_message": "Timeout: FSM stuck in ERROR state",
+    "module": "i2c_slave",
+    "severity": "LOW",
+    "bug_type": "FUNCTIONAL",
+    "root_cause": "Missing transition condition from DONE",
+    "symptoms": [
+      "Hang",
+      "No response to requests"
+    ],
+    "test_name": "test_i2c_slave_functional",
+    "failure_cycle": 42043
+  },
+  {
+    "bug_id": "SYNTH-6299",
+    "title": "FIFO overflow in dma_engine buffer",
+    "error_message": "Fatal: Write to full FIFO",
+    "module": "dma_engine",
+    "severity": "MEDIUM",
+    "bug_type": "MEMORY",
+    "root_cause": "Full signal not checked before write",
+    "symptoms": [
+      "Data loss",
+      "Assertion failures"
+    ],
+    "test_name": "test_dma_engine_memory",
+    "failure_cycle": 88645
+  },
+  {
+    "bug_id": "SYNTH-3933",
+    "title": "Cache coherence violation in uart_rx",
+    "error_message": "Stale data read from cache line",
+    "module": "uart_rx",
+    "severity": "HIGH",
+    "bug_type": "MEMORY",
+    "root_cause": "Snoop response not updating cache state",
+    "symptoms": [
+      "Data corruption",
+      "Incorrect computation"
+    ],
+    "test_name": "test_uart_rx_memory",
+    "failure_cycle": 95200
+  },
+  {
+    "bug_id": "SYNTH-7647",
+    "title": "AXI handshake violation in dma_engine",
+    "error_message": "Assertion failed: AWVALID high without AWREADY",
+    "module": "dma_engine",
+    "severity": "MEDIUM",
+    "bug_type": "PROTOCOL",
+    "root_cause": "State machine stuck in WAIT state",
+    "symptoms": [
+      "Transaction timeout",
+      "Bus deadlock"
+    ],
+    "test_name": "test_dma_engine_protocol",
+    "failure_cycle": 15649
+  },
+  {
+    "bug_id": "SYNTH-6611",
+    "title": "Cache coherence violation in memory_controller",
+    "error_message": "Stale data read from cache line",
+    "module": "memory_controller",
+    "severity": "HIGH",
+    "bug_type": "MEMORY",
+    "root_cause": "Snoop response not updating cache state",
+    "symptoms": [
+      "Data corruption",
+      "Incorrect computation"
+    ],
+    "test_name": "test_memory_controller_memory",
+    "failure_cycle": 4779
+  },
+  {
+    "bug_id": "SYNTH-6358",
+    "title": "Cache coherence violation in crypto_engine",
+    "error_message": "Stale data read from cache line",
+    "module": "crypto_engine",
+    "severity": "CRITICAL",
+    "bug_type": "MEMORY",
+    "root_cause": "Snoop response not updating cache state",
+    "symptoms": [
+      "Data corruption",
+      "Incorrect computation"
+    ],
+    "test_name": "test_crypto_engine_memory",
+    "failure_cycle": 46882
+  },
+  {
+    "bug_id": "SYNTH-8316",
+    "title": "PCIe TLP credit exhaustion in dma_engine",
+    "error_message": "Credit counter underflow detected",
+    "module": "dma_engine",
+    "severity": "MEDIUM",
+    "bug_type": "PROTOCOL",
+    "root_cause": "Missing bounds check on credit decrement",
+    "symptoms": [
+      "Protocol violations",
+      "Transaction drops"
+    ],
+    "test_name": "test_dma_engine_protocol",
+    "failure_cycle": 84606
+  },
+  {
+    "bug_id": "SYNTH-4148",
+    "title": "Race condition in uart_rx arbiter",
+    "error_message": "Multiple grants asserted simultaneously",
+    "module": "uart_rx",
+    "severity": "LOW",
+    "bug_type": "FUNCTIONAL",
+    "root_cause": "Non-atomic grant logic",
+    "symptoms": [
+      "Bus contention",
+      "Data corruption"
+    ],
+    "test_name": "test_uart_rx_functional",
+    "failure_cycle": 76513
+  },
+  {
+    "bug_id": "SYNTH-1696",
+    "title": "AXI handshake violation in timer_module",
+    "error_message": "Assertion failed: AWVALID high without AWREADY",
+    "module": "timer_module",
+    "severity": "HIGH",
+    "bug_type": "PROTOCOL",
+    "root_cause": "State machine stuck in WAIT state",
+    "symptoms": [
+      "Transaction timeout",
+      "Bus deadlock"
+    ],
+    "test_name": "test_timer_module_protocol",
+    "failure_cycle": 54739
+  },
+  {
+    "bug_id": "SYNTH-6285",
+    "title": "Hold violation in CDC crossing at i2c_slave",
+    "error_message": "Fatal: Metastability detected in clock domain crossing",
+    "module": "i2c_slave",
+    "severity": "MEDIUM",
+    "bug_type": "TIMING",
+    "root_cause": "Missing synchronizer on signal sig_req_1",
+    "symptoms": [
+      "Random assertion failures",
+      "Data corruption"
+    ],
+    "test_name": "test_i2c_slave_timing",
+    "failure_cycle": 29765
+  },
+  {
+    "bug_id": "SYNTH-6368",
+    "title": "Race condition in i2c_slave arbiter",
+    "error_message": "Multiple grants asserted simultaneously",
+    "module": "i2c_slave",
+    "severity": "MEDIUM",
+    "bug_type": "FUNCTIONAL",
+    "root_cause": "Non-atomic grant logic",
+    "symptoms": [
+      "Bus contention",
+      "Data corruption"
+    ],
+    "test_name": "test_i2c_slave_functional",
+    "failure_cycle": 60528
+  },
+  {
+    "bug_id": "SYNTH-4844",
+    "title": "Race condition in pcie_controller arbiter",
+    "error_message": "Multiple grants asserted simultaneously",
+    "module": "pcie_controller",
+    "severity": "MEDIUM",
+    "bug_type": "FUNCTIONAL",
+    "root_cause": "Non-atomic grant logic",
+    "symptoms": [
+      "Bus contention",
+      "Data corruption"
+    ],
+    "test_name": "test_pcie_controller_functional",
+    "failure_cycle": 79448
+  },
+  {
+    "bug_id": "SYNTH-2376",
+    "title": "Race condition in uart_rx arbiter",
+    "error_message": "Multiple grants asserted simultaneously",
+    "module": "uart_rx",
+    "severity": "MEDIUM",
+    "bug_type": "FUNCTIONAL",
+    "root_cause": "Non-atomic grant logic",
+    "symptoms": [
+      "Bus contention",
+      "Data corruption"
+    ],
+    "test_name": "test_uart_rx_functional",
+    "failure_cycle": 93872
+  },
+  {
+    "bug_id": "SYNTH-6325",
+    "title": "PCIe TLP credit exhaustion in memory_controller",
+    "error_message": "Credit counter underflow detected",
+    "module": "memory_controller",
+    "severity": "HIGH",
+    "bug_type": "PROTOCOL",
+    "root_cause": "Missing bounds check on credit decrement",
+    "symptoms": [
+      "Protocol violations",
+      "Transaction drops"
+    ],
+    "test_name": "test_memory_controller_protocol",
+    "failure_cycle": 91097
+  },
+  {
+    "bug_id": "SYNTH-9787",
+    "title": "FIFO overflow in interrupt_controller buffer",
+    "error_message": "Fatal: Write to full FIFO",
+    "module": "interrupt_controller",
+    "severity": "MEDIUM",
+    "bug_type": "MEMORY",
+    "root_cause": "Full signal not checked before write",
+    "symptoms": [
+      "Data loss",
+      "Assertion failures"
+    ],
+    "test_name": "test_interrupt_controller_memory",
+    "failure_cycle": 61256
+  },
+  {
+    "bug_id": "SYNTH-4358",
+    "title": "Race condition in memory_controller arbiter",
+    "error_message": "Multiple grants asserted simultaneously",
+    "module": "memory_controller",
+    "severity": "HIGH",
+    "bug_type": "FUNCTIONAL",
+    "root_cause": "Non-atomic grant logic",
+    "symptoms": [
+      "Bus contention",
+      "Data corruption"
+    ],
+    "test_name": "test_memory_controller_functional",
+    "failure_cycle": 76446
+  },
+  {
+    "bug_id": "SYNTH-8191",
+    "title": "Cache coherence violation in interrupt_controller",
+    "error_message": "Stale data read from cache line",
+    "module": "interrupt_controller",
+    "severity": "MEDIUM",
+    "bug_type": "MEMORY",
+    "root_cause": "Snoop response not updating cache state",
+    "symptoms": [
+      "Data corruption",
+      "Incorrect computation"
+    ],
+    "test_name": "test_interrupt_controller_memory",
+    "failure_cycle": 87504
+  },
+  {
+    "bug_id": "SYNTH-1556",
+    "title": "Race condition in interrupt_controller arbiter",
+    "error_message": "Multiple grants asserted simultaneously",
+    "module": "interrupt_controller",
+    "severity": "MEDIUM",
+    "bug_type": "FUNCTIONAL",
+    "root_cause": "Non-atomic grant logic",
+    "symptoms": [
+      "Bus contention",
+      "Data corruption"
+    ],
+    "test_name": "test_interrupt_controller_functional",
+    "failure_cycle": 17185
+  },
+  {
+    "bug_id": "SYNTH-7017",
+    "title": "FIFO overflow in timer_module buffer",
+    "error_message": "Fatal: Write to full FIFO",
+    "module": "timer_module",
+    "severity": "HIGH",
+    "bug_type": "MEMORY",
+    "root_cause": "Full signal not checked before write",
+    "symptoms": [
+      "Data loss",
+      "Assertion failures"
+    ],
+    "test_name": "test_timer_module_memory",
+    "failure_cycle": 49964
+  },
+  {
+    "bug_id": "SYNTH-6628",
+    "title": "Hold violation in CDC crossing at dma_engine",
+    "error_message": "Fatal: Metastability detected in clock domain crossing",
+    "module": "dma_engine",
+    "severity": "HIGH",
+    "bug_type": "TIMING",
+    "root_cause": "Missing synchronizer on signal sig_ack_5",
+    "symptoms": [
+      "Random assertion failures",
+      "Data corruption"
+    ],
+    "test_name": "test_dma_engine_timing",
+    "failure_cycle": 94679
+  },
+  {
+    "bug_id": "SYNTH-5832",
+    "title": "State machine deadlock in timer_module controller",
+    "error_message": "Timeout: FSM stuck in DONE state",
+    "module": "timer_module",
+    "severity": "HIGH",
+    "bug_type": "FUNCTIONAL",
+    "root_cause": "Missing transition condition from WAIT",
+    "symptoms": [
+      "Hang",
+      "No response to requests"
+    ],
+    "test_name": "test_timer_module_functional",
+    "failure_cycle": 45323
+  },
+  {
+    "bug_id": "SYNTH-7352",
+    "title": "Hold violation in CDC crossing at pcie_controller",
+    "error_message": "Fatal: Metastability detected in clock domain crossing",
+    "module": "pcie_controller",
+    "severity": "HIGH",
+    "bug_type": "TIMING",
+    "root_cause": "Missing synchronizer on signal sig_valid_6",
+    "symptoms": [
+      "Random assertion failures",
+      "Data corruption"
+    ],
+    "test_name": "test_pcie_controller_timing",
+    "failure_cycle": 81969
+  },
+  {
+    "bug_id": "SYNTH-3363",
+    "title": "FIFO overflow in memory_controller buffer",
+    "error_message": "Fatal: Write to full FIFO",
+    "module": "memory_controller",
+    "severity": "HIGH",
+    "bug_type": "MEMORY",
+    "root_cause": "Full signal not checked before write",
+    "symptoms": [
+      "Data loss",
+      "Assertion failures"
+    ],
+    "test_name": "test_memory_controller_memory",
+    "failure_cycle": 83916
+  },
+  {
+    "bug_id": "SYNTH-7316",
+    "title": "FIFO overflow in dma_engine buffer",
+    "error_message": "Fatal: Write to full FIFO",
+    "module": "dma_engine",
+    "severity": "CRITICAL",
+    "bug_type": "MEMORY",
+    "root_cause": "Full signal not checked before write",
+    "symptoms": [
+      "Data loss",
+      "Assertion failures"
+    ],
+    "test_name": "test_dma_engine_memory",
+    "failure_cycle": 62332
+  },
+  {
+    "bug_id": "SYNTH-9960",
+    "title": "PCIe TLP credit exhaustion in axi_crossbar",
+    "error_message": "Credit counter underflow detected",
+    "module": "axi_crossbar",
+    "severity": "MEDIUM",
+    "bug_type": "PROTOCOL",
+    "root_cause": "Missing bounds check on credit decrement",
+    "symptoms": [
+      "Protocol violations",
+      "Transaction drops"
+    ],
+    "test_name": "test_axi_crossbar_protocol",
+    "failure_cycle": 40748
+  },
+  {
+    "bug_id": "SYNTH-9863",
+    "title": "Race condition in axi_crossbar arbiter",
+    "error_message": "Multiple grants asserted simultaneously",
+    "module": "axi_crossbar",
+    "severity": "MEDIUM",
+    "bug_type": "FUNCTIONAL",
+    "root_cause": "Non-atomic grant logic",
+    "symptoms": [
+      "Bus contention",
+      "Data corruption"
+    ],
+    "test_name": "test_axi_crossbar_functional",
+    "failure_cycle": 98525
+  },
+  {
+    "bug_id": "SYNTH-6737",
+    "title": "Setup violation in i2c_slave register file",
+    "error_message": "Error: Setup time violation at cycle 93570",
+    "module": "i2c_slave",
+    "severity": "CRITICAL",
+    "bug_type": "TIMING",
+    "root_cause": "Combinational path too long between sig_valid_5 and sig_req_8",
+    "symptoms": [
+      "Incorrect register values",
+      "Non-deterministic behavior"
+    ],
+    "test_name": "test_i2c_slave_timing",
+    "failure_cycle": 22378
+  },
+  {
+    "bug_id": "SYNTH-8362",
+    "title": "Cache coherence violation in cache_controller",
+    "error_message": "Stale data read from cache line",
+    "module": "cache_controller",
+    "severity": "HIGH",
+    "bug_type": "MEMORY",
+    "root_cause": "Snoop response not updating cache state",
+    "symptoms": [
+      "Data corruption",
+      "Incorrect computation"
+    ],
+    "test_name": "test_cache_controller_memory",
+    "failure_cycle": 49735
+  },
+  {
+    "bug_id": "SYNTH-9896",
+    "title": "Cache coherence violation in interrupt_controller",
+    "error_message": "Stale data read from cache line",
+    "module": "interrupt_controller",
+    "severity": "HIGH",
+    "bug_type": "MEMORY",
+    "root_cause": "Snoop response not updating cache state",
+    "symptoms": [
+      "Data corruption",
+      "Incorrect computation"
+    ],
+    "test_name": "test_interrupt_controller_memory",
+    "failure_cycle": 19952
+  },
+  {
+    "bug_id": "SYNTH-2386",
+    "title": "State machine deadlock in interrupt_controller controller",
+    "error_message": "Timeout: FSM stuck in DONE state",
+    "module": "interrupt_controller",
+    "severity": "LOW",
+    "bug_type": "FUNCTIONAL",
+    "root_cause": "Missing transition condition from WAIT",
+    "symptoms": [
+      "Hang",
+      "No response to requests"
+    ],
+    "test_name": "test_interrupt_controller_functional",
+    "failure_cycle": 80521
+  },
+  {
+    "bug_id": "SYNTH-5580",
+    "title": "State machine deadlock in timer_module controller",
+    "error_message": "Timeout: FSM stuck in DONE state",
+    "module": "timer_module",
+    "severity": "HIGH",
+    "bug_type": "FUNCTIONAL",
+    "root_cause": "Missing transition condition from IDLE",
+    "symptoms": [
+      "Hang",
+      "No response to requests"
+    ],
+    "test_name": "test_timer_module_functional",
+    "failure_cycle": 72866
+  },
+  {
+    "bug_id": "SYNTH-7388",
+    "title": "PCIe TLP credit exhaustion in axi_crossbar",
+    "error_message": "Credit counter underflow detected",
+    "module": "axi_crossbar",
+    "severity": "MEDIUM",
+    "bug_type": "PROTOCOL",
+    "root_cause": "Missing bounds check on credit decrement",
+    "symptoms": [
+      "Protocol violations",
+      "Transaction drops"
+    ],
+    "test_name": "test_axi_crossbar_protocol",
+    "failure_cycle": 26032
+  },
+  {
+    "bug_id": "SYNTH-3463",
+    "title": "Cache coherence violation in uart_tx",
+    "error_message": "Stale data read from cache line",
+    "module": "uart_tx",
+    "severity": "CRITICAL",
+    "bug_type": "MEMORY",
+    "root_cause": "Snoop response not updating cache state",
+    "symptoms": [
+      "Data corruption",
+      "Incorrect computation"
+    ],
+    "test_name": "test_uart_tx_memory",
+    "failure_cycle": 78296
+  },
+  {
+    "bug_id": "SYNTH-7603",
+    "title": "PCIe TLP credit exhaustion in memory_controller",
+    "error_message": "Credit counter underflow detected",
+    "module": "memory_controller",
+    "severity": "HIGH",
+    "bug_type": "PROTOCOL",
+    "root_cause": "Missing bounds check on credit decrement",
+    "symptoms": [
+      "Protocol violations",
+      "Transaction drops"
+    ],
+    "test_name": "test_memory_controller_protocol",
+    "failure_cycle": 25350
+  },
+  {
+    "bug_id": "SYNTH-8484",
+    "title": "Cache coherence violation in uart_rx",
+    "error_message": "Stale data read from cache line",
+    "module": "uart_rx",
+    "severity": "MEDIUM",
+    "bug_type": "MEMORY",
+    "root_cause": "Snoop response not updating cache state",
+    "symptoms": [
+      "Data corruption",
+      "Incorrect computation"
+    ],
+    "test_name": "test_uart_rx_memory",
+    "failure_cycle": 64323
+  },
+  {
+    "bug_id": "SYNTH-3175",
+    "title": "Race condition in uart_tx arbiter",
+    "error_message": "Multiple grants asserted simultaneously",
+    "module": "uart_tx",
+    "severity": "LOW",
+    "bug_type": "FUNCTIONAL",
+    "root_cause": "Non-atomic grant logic",
+    "symptoms": [
+      "Bus contention",
+      "Data corruption"
+    ],
+    "test_name": "test_uart_tx_functional",
+    "failure_cycle": 54164
+  },
+  {
+    "bug_id": "SYNTH-4251",
+    "title": "FIFO overflow in cache_controller buffer",
+    "error_message": "Fatal: Write to full FIFO",
+    "module": "cache_controller",
+    "severity": "HIGH",
+    "bug_type": "MEMORY",
+    "root_cause": "Full signal not checked before write",
+    "symptoms": [
+      "Data loss",
+      "Assertion failures"
+    ],
+    "test_name": "test_cache_controller_memory",
+    "failure_cycle": 8017
+  },
+  {
+    "bug_id": "SYNTH-6312",
+    "title": "Cache coherence violation in crypto_engine",
+    "error_message": "Stale data read from cache line",
+    "module": "crypto_engine",
+    "severity": "MEDIUM",
+    "bug_type": "MEMORY",
+    "root_cause": "Snoop response not updating cache state",
+    "symptoms": [
+      "Data corruption",
+      "Incorrect computation"
+    ],
+    "test_name": "test_crypto_engine_memory",
+    "failure_cycle": 63330
+  },
+  {
+    "bug_id": "SYNTH-7376",
+    "title": "AXI handshake violation in dma_engine",
+    "error_message": "Assertion failed: AWVALID high without AWREADY",
+    "module": "dma_engine",
+    "severity": "MEDIUM",
+    "bug_type": "PROTOCOL",
+    "root_cause": "State machine stuck in WAIT state",
+    "symptoms": [
+      "Transaction timeout",
+      "Bus deadlock"
+    ],
+    "test_name": "test_dma_engine_protocol",
+    "failure_cycle": 96125
+  },
+  {
+    "bug_id": "SYNTH-8726",
+    "title": "Setup violation in timer_module register file",
+    "error_message": "Error: Setup time violation at cycle 94655",
+    "module": "timer_module",
+    "severity": "CRITICAL",
+    "bug_type": "TIMING",
+    "root_cause": "Combinational path too long between sig_ack_6 and sig_req_2",
+    "symptoms": [
+      "Incorrect register values",
+      "Non-deterministic behavior"
+    ],
+    "test_name": "test_timer_module_timing",
+    "failure_cycle": 74582
+  },
+  {
+    "bug_id": "SYNTH-7810",
+    "title": "Hold violation in CDC crossing at spi_master",
+    "error_message": "Fatal: Metastability detected in clock domain crossing",
+    "module": "spi_master",
+    "severity": "HIGH",
+    "bug_type": "TIMING",
+    "root_cause": "Missing synchronizer on signal sig_valid_8",
+    "symptoms": [
+      "Random assertion failures",
+      "Data corruption"
+    ],
+    "test_name": "test_spi_master_timing",
+    "failure_cycle": 55536
+  },
+  {
+    "bug_id": "SYNTH-4313",
+    "title": "FIFO overflow in dma_engine buffer",
+    "error_message": "Fatal: Write to full FIFO",
+    "module": "dma_engine",
+    "severity": "HIGH",
+    "bug_type": "MEMORY",
+    "root_cause": "Full signal not checked before write",
+    "symptoms": [
+      "Data loss",
+      "Assertion failures"
+    ],
+    "test_name": "test_dma_engine_memory",
+    "failure_cycle": 24599
+  },
+  {
+    "bug_id": "SYNTH-7960",
+    "title": "Cache coherence violation in cache_controller",
+    "error_message": "Stale data read from cache line",
+    "module": "cache_controller",
+    "severity": "MEDIUM",
+    "bug_type": "MEMORY",
+    "root_cause": "Snoop response not updating cache state",
+    "symptoms": [
+      "Data corruption",
+      "Incorrect computation"
+    ],
+    "test_name": "test_cache_controller_memory",
+    "failure_cycle": 91841
+  },
+  {
+    "bug_id": "SYNTH-8295",
+    "title": "Cache coherence violation in pcie_controller",
+    "error_message": "Stale data read from cache line",
+    "module": "pcie_controller",
+    "severity": "CRITICAL",
+    "bug_type": "MEMORY",
+    "root_cause": "Snoop response not updating cache state",
+    "symptoms": [
+      "Data corruption",
+      "Incorrect computation"
+    ],
+    "test_name": "test_pcie_controller_memory",
+    "failure_cycle": 33203
+  },
+  {
+    "bug_id": "SYNTH-3410",
+    "title": "PCIe TLP credit exhaustion in dma_engine",
+    "error_message": "Credit counter underflow detected",
+    "module": "dma_engine",
+    "severity": "HIGH",
+    "bug_type": "PROTOCOL",
+    "root_cause": "Missing bounds check on credit decrement",
+    "symptoms": [
+      "Protocol violations",
+      "Transaction drops"
+    ],
+    "test_name": "test_dma_engine_protocol",
+    "failure_cycle": 22279
+  },
+  {
+    "bug_id": "SYNTH-3954",
+    "title": "FIFO overflow in dma_engine buffer",
+    "error_message": "Fatal: Write to full FIFO",
+    "module": "dma_engine",
+    "severity": "CRITICAL",
+    "bug_type": "MEMORY",
+    "root_cause": "Full signal not checked before write",
+    "symptoms": [
+      "Data loss",
+      "Assertion failures"
+    ],
+    "test_name": "test_dma_engine_memory",
+    "failure_cycle": 27699
+  },
+  {
+    "bug_id": "SYNTH-3255",
+    "title": "State machine deadlock in axi_crossbar controller",
+    "error_message": "Timeout: FSM stuck in DONE state",
+    "module": "axi_crossbar",
+    "severity": "LOW",
+    "bug_type": "FUNCTIONAL",
+    "root_cause": "Missing transition condition from DONE",
+    "symptoms": [
+      "Hang",
+      "No response to requests"
+    ],
+    "test_name": "test_axi_crossbar_functional",
+    "failure_cycle": 44980
+  },
+  {
+    "bug_id": "SYNTH-6368",
+    "title": "PCIe TLP credit exhaustion in memory_controller",
+    "error_message": "Credit counter underflow detected",
+    "module": "memory_controller",
+    "severity": "MEDIUM",
+    "bug_type": "PROTOCOL",
+    "root_cause": "Missing bounds check on credit decrement",
+    "symptoms": [
+      "Protocol violations",
+      "Transaction drops"
+    ],
+    "test_name": "test_memory_controller_protocol",
+    "failure_cycle": 47642
+  },
+  {
+    "bug_id": "SYNTH-9812",
+    "title": "Race condition in axi_crossbar arbiter",
+    "error_message": "Multiple grants asserted simultaneously",
+    "module": "axi_crossbar",
+    "severity": "MEDIUM",
+    "bug_type": "FUNCTIONAL",
+    "root_cause": "Non-atomic grant logic",
+    "symptoms": [
+      "Bus contention",
+      "Data corruption"
+    ],
+    "test_name": "test_axi_crossbar_functional",
+    "failure_cycle": 60359
+  },
+  {
+    "bug_id": "SYNTH-2953",
+    "title": "AXI handshake violation in memory_controller",
+    "error_message": "Assertion failed: AWVALID high without AWREADY",
+    "module": "memory_controller",
+    "severity": "MEDIUM",
+    "bug_type": "PROTOCOL",
+    "root_cause": "State machine stuck in WAIT state",
+    "symptoms": [
+      "Transaction timeout",
+      "Bus deadlock"
+    ],
+    "test_name": "test_memory_controller_protocol",
+    "failure_cycle": 93059
+  },
+  {
+    "bug_id": "SYNTH-6454",
+    "title": "Cache coherence violation in memory_controller",
+    "error_message": "Stale data read from cache line",
+    "module": "memory_controller",
+    "severity": "MEDIUM",
+    "bug_type": "MEMORY",
+    "root_cause": "Snoop response not updating cache state",
+    "symptoms": [
+      "Data corruption",
+      "Incorrect computation"
+    ],
+    "test_name": "test_memory_controller_memory",
+    "failure_cycle": 1200
+  },
+  {
+    "bug_id": "SYNTH-3009",
+    "title": "Setup violation in spi_master register file",
+    "error_message": "Error: Setup time violation at cycle 39180",
+    "module": "spi_master",
+    "severity": "CRITICAL",
+    "bug_type": "TIMING",
+    "root_cause": "Combinational path too long between sig_req_6 and sig_valid_8",
+    "symptoms": [
+      "Incorrect register values",
+      "Non-deterministic behavior"
+    ],
+    "test_name": "test_spi_master_timing",
+    "failure_cycle": 18666
+  },
+  {
+    "bug_id": "SYNTH-8960",
+    "title": "Setup violation in pcie_controller register file",
+    "error_message": "Error: Setup time violation at cycle 9523",
+    "module": "pcie_controller",
+    "severity": "HIGH",
+    "bug_type": "TIMING",
+    "root_cause": "Combinational path too long between sig_valid_2 and sig_valid_3",
+    "symptoms": [
+      "Incorrect register values",
+      "Non-deterministic behavior"
+    ],
+    "test_name": "test_pcie_controller_timing",
+    "failure_cycle": 6798
+  },
+  {
+    "bug_id": "SYNTH-9214",
+    "title": "AXI handshake violation in interrupt_controller",
+    "error_message": "Assertion failed: AWVALID high without AWREADY",
+    "module": "interrupt_controller",
+    "severity": "MEDIUM",
+    "bug_type": "PROTOCOL",
+    "root_cause": "State machine stuck in WAIT state",
+    "symptoms": [
+      "Transaction timeout",
+      "Bus deadlock"
+    ],
+    "test_name": "test_interrupt_controller_protocol",
+    "failure_cycle": 43715
+  },
+  {
+    "bug_id": "SYNTH-3796",
+    "title": "FIFO overflow in dma_engine buffer",
+    "error_message": "Fatal: Write to full FIFO",
+    "module": "dma_engine",
+    "severity": "HIGH",
+    "bug_type": "MEMORY",
+    "root_cause": "Full signal not checked before write",
+    "symptoms": [
+      "Data loss",
+      "Assertion failures"
+    ],
+    "test_name": "test_dma_engine_memory",
+    "failure_cycle": 88586
+  },
+  {
+    "bug_id": "SYNTH-1793",
+    "title": "State machine deadlock in i2c_slave controller",
+    "error_message": "Timeout: FSM stuck in ERROR state",
+    "module": "i2c_slave",
+    "severity": "MEDIUM",
+    "bug_type": "FUNCTIONAL",
+    "root_cause": "Missing transition condition from IDLE",
+    "symptoms": [
+      "Hang",
+      "No response to requests"
+    ],
+    "test_name": "test_i2c_slave_functional",
+    "failure_cycle": 14002
+  },
+  {
+    "bug_id": "SYNTH-7233",
+    "title": "Setup violation in crypto_engine register file",
+    "error_message": "Error: Setup time violation at cycle 33508",
+    "module": "crypto_engine",
+    "severity": "CRITICAL",
+    "bug_type": "TIMING",
+    "root_cause": "Combinational path too long between sig_ack_9 and sig_ack_2",
+    "symptoms": [
+      "Incorrect register values",
+      "Non-deterministic behavior"
+    ],
+    "test_name": "test_crypto_engine_timing",
+    "failure_cycle": 72952
+  },
+  {
+    "bug_id": "SYNTH-5580",
+    "title": "Setup violation in crypto_engine register file",
+    "error_message": "Error: Setup time violation at cycle 8546",
+    "module": "crypto_engine",
+    "severity": "CRITICAL",
+    "bug_type": "TIMING",
+    "root_cause": "Combinational path too long between sig_ready_9 and sig_data_5",
+    "symptoms": [
+      "Incorrect register values",
+      "Non-deterministic behavior"
+    ],
+    "test_name": "test_crypto_engine_timing",
+    "failure_cycle": 36554
+  },
+  {
+    "bug_id": "SYNTH-1303",
+    "title": "Hold violation in CDC crossing at interrupt_controller",
+    "error_message": "Fatal: Metastability detected in clock domain crossing",
+    "module": "interrupt_controller",
+    "severity": "CRITICAL",
+    "bug_type": "TIMING",
+    "root_cause": "Missing synchronizer on signal sig_data_7",
+    "symptoms": [
+      "Random assertion failures",
+      "Data corruption"
+    ],
+    "test_name": "test_interrupt_controller_timing",
+    "failure_cycle": 98885
+  },
+  {
+    "bug_id": "SYNTH-4315",
+    "title": "Race condition in interrupt_controller arbiter",
+    "error_message": "Multiple grants asserted simultaneously",
+    "module": "interrupt_controller",
+    "severity": "HIGH",
+    "bug_type": "FUNCTIONAL",
+    "root_cause": "Non-atomic grant logic",
+    "symptoms": [
+      "Bus contention",
+      "Data corruption"
+    ],
+    "test_name": "test_interrupt_controller_functional",
+    "failure_cycle": 22050
+  },
+  {
+    "bug_id": "SYNTH-5866",
+    "title": "State machine deadlock in pcie_controller controller",
+    "error_message": "Timeout: FSM stuck in WAIT state",
+    "module": "pcie_controller",
+    "severity": "LOW",
+    "bug_type": "FUNCTIONAL",
+    "root_cause": "Missing transition condition from ERROR",
+    "symptoms": [
+      "Hang",
+      "No response to requests"
+    ],
+    "test_name": "test_pcie_controller_functional",
+    "failure_cycle": 13631
+  },
+  {
+    "bug_id": "SYNTH-1638",
+    "title": "Hold violation in CDC crossing at crypto_engine",
+    "error_message": "Fatal: Metastability detected in clock domain crossing",
+    "module": "crypto_engine",
+    "severity": "HIGH",
+    "bug_type": "TIMING",
+    "root_cause": "Missing synchronizer on signal sig_req_3",
+    "symptoms": [
+      "Random assertion failures",
+      "Data corruption"
+    ],
+    "test_name": "test_crypto_engine_timing",
+    "failure_cycle": 96124
+  },
+  {
+    "bug_id": "SYNTH-4197",
+    "title": "PCIe TLP credit exhaustion in pcie_controller",
+    "error_message": "Credit counter underflow detected",
+    "module": "pcie_controller",
+    "severity": "HIGH",
+    "bug_type": "PROTOCOL",
+    "root_cause": "Missing bounds check on credit decrement",
+    "symptoms": [
+      "Protocol violations",
+      "Transaction drops"
+    ],
+    "test_name": "test_pcie_controller_protocol",
+    "failure_cycle": 43726
+  },
+  {
+    "bug_id": "SYNTH-5227",
+    "title": "Race condition in dma_engine arbiter",
+    "error_message": "Multiple grants asserted simultaneously",
+    "module": "dma_engine",
+    "severity": "MEDIUM",
+    "bug_type": "FUNCTIONAL",
+    "root_cause": "Non-atomic grant logic",
+    "symptoms": [
+      "Bus contention",
+      "Data corruption"
+    ],
+    "test_name": "test_dma_engine_functional",
+    "failure_cycle": 82389
+  },
+  {
+    "bug_id": "SYNTH-8281",
+    "title": "AXI handshake violation in dma_engine",
+    "error_message": "Assertion failed: AWVALID high without AWREADY",
+    "module": "dma_engine",
+    "severity": "HIGH",
+    "bug_type": "PROTOCOL",
+    "root_cause": "State machine stuck in WAIT state",
+    "symptoms": [
+      "Transaction timeout",
+      "Bus deadlock"
+    ],
+    "test_name": "test_dma_engine_protocol",
+    "failure_cycle": 28279
+  },
+  {
+    "bug_id": "SYNTH-8642",
+    "title": "PCIe TLP credit exhaustion in crypto_engine",
+    "error_message": "Credit counter underflow detected",
+    "module": "crypto_engine",
+    "severity": "MEDIUM",
+    "bug_type": "PROTOCOL",
+    "root_cause": "Missing bounds check on credit decrement",
+    "symptoms": [
+      "Protocol violations",
+      "Transaction drops"
+    ],
+    "test_name": "test_crypto_engine_protocol",
+    "failure_cycle": 92443
+  },
+  {
+    "bug_id": "SYNTH-9042",
+    "title": "FIFO overflow in uart_tx buffer",
+    "error_message": "Fatal: Write to full FIFO",
+    "module": "uart_tx",
+    "severity": "HIGH",
+    "bug_type": "MEMORY",
+    "root_cause": "Full signal not checked before write",
+    "symptoms": [
+      "Data loss",
+      "Assertion failures"
+    ],
+    "test_name": "test_uart_tx_memory",
+    "failure_cycle": 8614
+  },
+  {
+    "bug_id": "SYNTH-6215",
+    "title": "Race condition in spi_master arbiter",
+    "error_message": "Multiple grants asserted simultaneously",
+    "module": "spi_master",
+    "severity": "LOW",
+    "bug_type": "FUNCTIONAL",
+    "root_cause": "Non-atomic grant logic",
+    "symptoms": [
+      "Bus contention",
+      "Data corruption"
+    ],
+    "test_name": "test_spi_master_functional",
+    "failure_cycle": 64124
+  },
+  {
+    "bug_id": "SYNTH-1889",
+    "title": "Setup violation in i2c_slave register file",
+    "error_message": "Error: Setup time violation at cycle 58892",
+    "module": "i2c_slave",
+    "severity": "MEDIUM",
+    "bug_type": "TIMING",
+    "root_cause": "Combinational path too long between sig_ready_3 and sig_valid_9",
+    "symptoms": [
+      "Incorrect register values",
+      "Non-deterministic behavior"
+    ],
+    "test_name": "test_i2c_slave_timing",
+    "failure_cycle": 33086
+  },
+  {
+    "bug_id": "SYNTH-1305",
+    "title": "Hold violation in CDC crossing at pcie_controller",
+    "error_message": "Fatal: Metastability detected in clock domain crossing",
+    "module": "pcie_controller",
+    "severity": "HIGH",
+    "bug_type": "TIMING",
+    "root_cause": "Missing synchronizer on signal sig_ack_5",
+    "symptoms": [
+      "Random assertion failures",
+      "Data corruption"
+    ],
+    "test_name": "test_pcie_controller_timing",
+    "failure_cycle": 7397
+  },
+  {
+    "bug_id": "SYNTH-3971",
+    "title": "Hold violation in CDC crossing at uart_tx",
+    "error_message": "Fatal: Metastability detected in clock domain crossing",
+    "module": "uart_tx",
+    "severity": "HIGH",
+    "bug_type": "TIMING",
+    "root_cause": "Missing synchronizer on signal sig_req_1",
+    "symptoms": [
+      "Random assertion failures",
+      "Data corruption"
+    ],
+    "test_name": "test_uart_tx_timing",
+    "failure_cycle": 34366
+  },
+  {
+    "bug_id": "SYNTH-1952",
+    "title": "FIFO overflow in memory_controller buffer",
+    "error_message": "Fatal: Write to full FIFO",
+    "module": "memory_controller",
+    "severity": "MEDIUM",
+    "bug_type": "MEMORY",
+    "root_cause": "Full signal not checked before write",
+    "symptoms": [
+      "Data loss",
+      "Assertion failures"
+    ],
+    "test_name": "test_memory_controller_memory",
+    "failure_cycle": 99726
+  },
+  {
+    "bug_id": "SYNTH-9710",
+    "title": "FIFO overflow in crypto_engine buffer",
+    "error_message": "Fatal: Write to full FIFO",
+    "module": "crypto_engine",
+    "severity": "HIGH",
+    "bug_type": "MEMORY",
+    "root_cause": "Full signal not checked before write",
+    "symptoms": [
+      "Data loss",
+      "Assertion failures"
+    ],
+    "test_name": "test_crypto_engine_memory",
+    "failure_cycle": 85343
+  },
+  {
+    "bug_id": "SYNTH-3474",
+    "title": "Cache coherence violation in i2c_slave",
+    "error_message": "Stale data read from cache line",
+    "module": "i2c_slave",
+    "severity": "MEDIUM",
+    "bug_type": "MEMORY",
+    "root_cause": "Snoop response not updating cache state",
+    "symptoms": [
+      "Data corruption",
+      "Incorrect computation"
+    ],
+    "test_name": "test_i2c_slave_memory",
+    "failure_cycle": 63536
+  },
+  {
+    "bug_id": "SYNTH-9213",
+    "title": "Setup violation in spi_master register file",
+    "error_message": "Error: Setup time violation at cycle 18055",
+    "module": "spi_master",
+    "severity": "CRITICAL",
+    "bug_type": "TIMING",
+    "root_cause": "Combinational path too long between sig_ack_0 and sig_ack_6",
+    "symptoms": [
+      "Incorrect register values",
+      "Non-deterministic behavior"
+    ],
+    "test_name": "test_spi_master_timing",
+    "failure_cycle": 47018
+  },
+  {
+    "bug_id": "SYNTH-9329",
+    "title": "Setup violation in pcie_controller register file",
+    "error_message": "Error: Setup time violation at cycle 13320",
+    "module": "pcie_controller",
+    "severity": "HIGH",
+    "bug_type": "TIMING",
+    "root_cause": "Combinational path too long between sig_ack_6 and sig_req_4",
+    "symptoms": [
+      "Incorrect register values",
+      "Non-deterministic behavior"
+    ],
+    "test_name": "test_pcie_controller_timing",
+    "failure_cycle": 54787
+  },
+  {
+    "bug_id": "SYNTH-2452",
+    "title": "State machine deadlock in timer_module controller",
+    "error_message": "Timeout: FSM stuck in ACTIVE state",
+    "module": "timer_module",
+    "severity": "LOW",
+    "bug_type": "FUNCTIONAL",
+    "root_cause": "Missing transition condition from IDLE",
+    "symptoms": [
+      "Hang",
+      "No response to requests"
+    ],
+    "test_name": "test_timer_module_functional",
+    "failure_cycle": 99388
+  },
+  {
+    "bug_id": "SYNTH-6962",
+    "title": "Hold violation in CDC crossing at uart_tx",
+    "error_message": "Fatal: Metastability detected in clock domain crossing",
+    "module": "uart_tx",
+    "severity": "HIGH",
+    "bug_type": "TIMING",
+    "root_cause": "Missing synchronizer on signal sig_req_0",
+    "symptoms": [
+      "Random assertion failures",
+      "Data corruption"
+    ],
+    "test_name": "test_uart_tx_timing",
+    "failure_cycle": 15367
+  },
+  {
+    "bug_id": "SYNTH-4831",
+    "title": "Race condition in cache_controller arbiter",
+    "error_message": "Multiple grants asserted simultaneously",
+    "module": "cache_controller",
+    "severity": "HIGH",
+    "bug_type": "FUNCTIONAL",
+    "root_cause": "Non-atomic grant logic",
+    "symptoms": [
+      "Bus contention",
+      "Data corruption"
+    ],
+    "test_name": "test_cache_controller_functional",
+    "failure_cycle": 20652
+  },
+  {
+    "bug_id": "SYNTH-9393",
+    "title": "AXI handshake violation in axi_crossbar",
+    "error_message": "Assertion failed: AWVALID high without AWREADY",
+    "module": "axi_crossbar",
+    "severity": "MEDIUM",
+    "bug_type": "PROTOCOL",
+    "root_cause": "State machine stuck in WAIT state",
+    "symptoms": [
+      "Transaction timeout",
+      "Bus deadlock"
+    ],
+    "test_name": "test_axi_crossbar_protocol",
+    "failure_cycle": 36926
+  },
+  {
+    "bug_id": "SYNTH-6494",
+    "title": "State machine deadlock in i2c_slave controller",
+    "error_message": "Timeout: FSM stuck in DONE state",
+    "module": "i2c_slave",
+    "severity": "MEDIUM",
+    "bug_type": "FUNCTIONAL",
+    "root_cause": "Missing transition condition from IDLE",
+    "symptoms": [
+      "Hang",
+      "No response to requests"
+    ],
+    "test_name": "test_i2c_slave_functional",
+    "failure_cycle": 35289
+  },
+  {
+    "bug_id": "SYNTH-6662",
+    "title": "Race condition in uart_tx arbiter",
+    "error_message": "Multiple grants asserted simultaneously",
+    "module": "uart_tx",
+    "severity": "MEDIUM",
+    "bug_type": "FUNCTIONAL",
+    "root_cause": "Non-atomic grant logic",
+    "symptoms": [
+      "Bus contention",
+      "Data corruption"
+    ],
+    "test_name": "test_uart_tx_functional",
+    "failure_cycle": 55654
+  },
+  {
+    "bug_id": "SYNTH-6653",
+    "title": "Race condition in pcie_controller arbiter",
+    "error_message": "Multiple grants asserted simultaneously",
+    "module": "pcie_controller",
+    "severity": "HIGH",
+    "bug_type": "FUNCTIONAL",
+    "root_cause": "Non-atomic grant logic",
+    "symptoms": [
+      "Bus contention",
+      "Data corruption"
+    ],
+    "test_name": "test_pcie_controller_functional",
+    "failure_cycle": 1283
+  },
+  {
+    "bug_id": "SYNTH-7019",
+    "title": "Hold violation in CDC crossing at uart_rx",
+    "error_message": "Fatal: Metastability detected in clock domain crossing",
+    "module": "uart_rx",
+    "severity": "HIGH",
+    "bug_type": "TIMING",
+    "root_cause": "Missing synchronizer on signal sig_ack_6",
+    "symptoms": [
+      "Random assertion failures",
+      "Data corruption"
+    ],
+    "test_name": "test_uart_rx_timing",
+    "failure_cycle": 16959
+  },
+  {
+    "bug_id": "SYNTH-3285",
+    "title": "AXI handshake violation in memory_controller",
+    "error_message": "Assertion failed: AWVALID high without AWREADY",
+    "module": "memory_controller",
+    "severity": "HIGH",
+    "bug_type": "PROTOCOL",
+    "root_cause": "State machine stuck in WAIT state",
+    "symptoms": [
+      "Transaction timeout",
+      "Bus deadlock"
+    ],
+    "test_name": "test_memory_controller_protocol",
+    "failure_cycle": 8504
+  },
+  {
+    "bug_id": "SYNTH-3334",
+    "title": "Cache coherence violation in uart_rx",
+    "error_message": "Stale data read from cache line",
+    "module": "uart_rx",
+    "severity": "HIGH",
+    "bug_type": "MEMORY",
+    "root_cause": "Snoop response not updating cache state",
+    "symptoms": [
+      "Data corruption",
+      "Incorrect computation"
+    ],
+    "test_name": "test_uart_rx_memory",
+    "failure_cycle": 62234
+  },
+  {
+    "bug_id": "SYNTH-6918",
+    "title": "Race condition in timer_module arbiter",
+    "error_message": "Multiple grants asserted simultaneously",
+    "module": "timer_module",
+    "severity": "LOW",
+    "bug_type": "FUNCTIONAL",
+    "root_cause": "Non-atomic grant logic",
+    "symptoms": [
+      "Bus contention",
+      "Data corruption"
+    ],
+    "test_name": "test_timer_module_functional",
+    "failure_cycle": 1240
+  },
+  {
+    "bug_id": "SYNTH-9025",
+    "title": "PCIe TLP credit exhaustion in uart_rx",
+    "error_message": "Credit counter underflow detected",
+    "module": "uart_rx",
+    "severity": "MEDIUM",
+    "bug_type": "PROTOCOL",
+    "root_cause": "Missing bounds check on credit decrement",
+    "symptoms": [
+      "Protocol violations",
+      "Transaction drops"
+    ],
+    "test_name": "test_uart_rx_protocol",
+    "failure_cycle": 84564
+  },
+  {
+    "bug_id": "SYNTH-6729",
+    "title": "Hold violation in CDC crossing at i2c_slave",
+    "error_message": "Fatal: Metastability detected in clock domain crossing",
+    "module": "i2c_slave",
+    "severity": "HIGH",
+    "bug_type": "TIMING",
+    "root_cause": "Missing synchronizer on signal sig_data_9",
+    "symptoms": [
+      "Random assertion failures",
+      "Data corruption"
+    ],
+    "test_name": "test_i2c_slave_timing",
+    "failure_cycle": 69531
+  },
+  {
+    "bug_id": "SYNTH-6746",
+    "title": "Hold violation in CDC crossing at dma_engine",
+    "error_message": "Fatal: Metastability detected in clock domain crossing",
+    "module": "dma_engine",
+    "severity": "HIGH",
+    "bug_type": "TIMING",
+    "root_cause": "Missing synchronizer on signal sig_req_7",
+    "symptoms": [
+      "Random assertion failures",
+      "Data corruption"
+    ],
+    "test_name": "test_dma_engine_timing",
+    "failure_cycle": 60540
+  },
+  {
+    "bug_id": "SYNTH-9910",
+    "title": "PCIe TLP credit exhaustion in axi_crossbar",
+    "error_message": "Credit counter underflow detected",
+    "module": "axi_crossbar",
+    "severity": "HIGH",
+    "bug_type": "PROTOCOL",
+    "root_cause": "Missing bounds check on credit decrement",
+    "symptoms": [
+      "Protocol violations",
+      "Transaction drops"
+    ],
+    "test_name": "test_axi_crossbar_protocol",
+    "failure_cycle": 37597
+  },
+  {
+    "bug_id": "SYNTH-7283",
+    "title": "AXI handshake violation in memory_controller",
+    "error_message": "Assertion failed: AWVALID high without AWREADY",
+    "module": "memory_controller",
+    "severity": "MEDIUM",
+    "bug_type": "PROTOCOL",
+    "root_cause": "State machine stuck in WAIT state",
+    "symptoms": [
+      "Transaction timeout",
+      "Bus deadlock"
+    ],
+    "test_name": "test_memory_controller_protocol",
+    "failure_cycle": 87906
+  },
+  {
+    "bug_id": "SYNTH-5204",
+    "title": "State machine deadlock in cache_controller controller",
+    "error_message": "Timeout: FSM stuck in IDLE state",
+    "module": "cache_controller",
+    "severity": "LOW",
+    "bug_type": "FUNCTIONAL",
+    "root_cause": "Missing transition condition from DONE",
+    "symptoms": [
+      "Hang",
+      "No response to requests"
+    ],
+    "test_name": "test_cache_controller_functional",
+    "failure_cycle": 16610
+  },
+  {
+    "bug_id": "SYNTH-1575",
+    "title": "FIFO overflow in pcie_controller buffer",
+    "error_message": "Fatal: Write to full FIFO",
+    "module": "pcie_controller",
+    "severity": "HIGH",
+    "bug_type": "MEMORY",
+    "root_cause": "Full signal not checked before write",
+    "symptoms": [
+      "Data loss",
+      "Assertion failures"
+    ],
+    "test_name": "test_pcie_controller_memory",
+    "failure_cycle": 72415
+  },
+  {
+    "bug_id": "SYNTH-9966",
+    "title": "FIFO overflow in dma_engine buffer",
+    "error_message": "Fatal: Write to full FIFO",
+    "module": "dma_engine",
+    "severity": "MEDIUM",
+    "bug_type": "MEMORY",
+    "root_cause": "Full signal not checked before write",
+    "symptoms": [
+      "Data loss",
+      "Assertion failures"
+    ],
+    "test_name": "test_dma_engine_memory",
+    "failure_cycle": 27844
+  },
+  {
+    "bug_id": "SYNTH-7103",
+    "title": "PCIe TLP credit exhaustion in axi_crossbar",
+    "error_message": "Credit counter underflow detected",
+    "module": "axi_crossbar",
+    "severity": "MEDIUM",
+    "bug_type": "PROTOCOL",
+    "root_cause": "Missing bounds check on credit decrement",
+    "symptoms": [
+      "Protocol violations",
+      "Transaction drops"
+    ],
+    "test_name": "test_axi_crossbar_protocol",
+    "failure_cycle": 69873
+  },
+  {
+    "bug_id": "SYNTH-3119",
+    "title": "Race condition in pcie_controller arbiter",
+    "error_message": "Multiple grants asserted simultaneously",
+    "module": "pcie_controller",
+    "severity": "HIGH",
+    "bug_type": "FUNCTIONAL",
+    "root_cause": "Non-atomic grant logic",
+    "symptoms": [
+      "Bus contention",
+      "Data corruption"
+    ],
+    "test_name": "test_pcie_controller_functional",
+    "failure_cycle": 12997
+  },
+  {
+    "bug_id": "SYNTH-2861",
+    "title": "State machine deadlock in dma_engine controller",
+    "error_message": "Timeout: FSM stuck in DONE state",
+    "module": "dma_engine",
+    "severity": "MEDIUM",
+    "bug_type": "FUNCTIONAL",
+    "root_cause": "Missing transition condition from ACTIVE",
+    "symptoms": [
+      "Hang",
+      "No response to requests"
+    ],
+    "test_name": "test_dma_engine_functional",
+    "failure_cycle": 57751
+  }
+]

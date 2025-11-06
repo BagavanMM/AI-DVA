@@ -1,0 +1,23 @@
+# Requirements for LLM-based Debug Assistant (Component 3)
+# Install with: pip install -r requirements_debug_assistant.txt
+
+# Core dependencies (already installed for Components 1 & 2)
+numpy>=1.21.0
+scikit-learn>=1.0.0
+sentence-transformers>=2.2.0
+faiss-cpu>=1.7.4  # or faiss-gpu if you have CUDA
+
+# LLM API clients (install at least one)
+# Option 1: OpenAI
+openai>=1.0.0
+
+# Option 2: Anthropic (Claude)
+# anthropic>=0.18.0
+
+# Optional: For better JSON parsing
+# jsonschema>=4.0.0
+
+# Note: You need an API key from one of these providers:
+# - OpenAI: https://platform.openai.com/api-keys
+# - Anthropic: https://console.anthropic.com/
+# Set environment variable: OPENAI_API_KEY or ANTHROPIC_API_KEY

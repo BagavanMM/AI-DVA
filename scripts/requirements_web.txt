@@ -1,0 +1,22 @@
+# Requirements for Web UI (Streamlit)
+# Install with: pip install -r requirements_web.txt
+
+# Web framework
+streamlit>=1.28.0
+
+# Environment variable management
+python-dotenv>=1.0.0
+
+# Core dependencies (from previous components)
+numpy>=1.21.0
+scikit-learn>=1.0.0
+sentence-transformers>=2.2.0
+faiss-cpu>=1.7.4  # or faiss-gpu if you have CUDA
+
+# Optional: For Flask API alternative
+# flask>=2.3.0
+# flask-cors>=4.0.0
+
+# Note: Also install requirements_debug_assistant.txt if using LLM features
+# For Anthropic: pip install anthropic
+# For OpenAI: pip install openai

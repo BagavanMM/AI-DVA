@@ -1,0 +1,126 @@
+# Sample Bugs for Testing Web App
+
+Copy and paste these into the Streamlit web app for testing.
+
+## ⚠️ NEW: For LLM Debug Assistant Testing
+
+For comprehensive LLM debug plan generation with code snippets, see:
+- `realistic_sample_bugs.md` - Detailed bugs with SystemVerilog code
+- `sample_bugs_with_code.json` - JSON format for API testing
+
+The bugs below are quick tests. For full LLM capabilities, use the realistic bugs above.
+
+==========================================
+TEST BUG 1: Race Condition
+==========================================
+Bug ID: SYNTH-8350
+Title: Race condition in uart_tx arbiter
+Error: Multiple grants asserted simultaneously
+Module: uart_tx
+Test: test_uart_tx_functional
+Cycle: 9489
+
+Expected Results:
+- Severity: LOW or MEDIUM
+- Bug Type: FUNCTIONAL
+- Root Cause: Related to arbitration logic
+
+==========================================
+TEST BUG 2: Setup Violation
+==========================================
+Bug ID: SYNTH-5580
+Title: Setup violation in crypto_engine register file
+Error: Error: Setup time violation at cycle 8546
+Module: crypto_engine
+Test: test_crypto_engine_timing
+Cycle: 36554
+
+Expected Results:
+- Severity: CRITICAL or HIGH
+- Bug Type: TIMING
+- Root Cause: Related to timing paths
+
+==========================================
+TEST BUG 3: AES Missing Output
+==========================================
+Bug ID: OT-10387
+Title: AES missing output
+Error: error and clears the registers and tries again
+Module: aes
+Cycle: 0
+
+Expected Results:
+- Severity: HIGH
+- Bug Type: FUNCTIONAL
+- Root Cause: Related to FSM or state machine
+
+==========================================
+TEST BUG 4: CDC Violation
+==========================================
+Bug ID: SYNTH-3223
+Title: Hold violation in CDC crossing at crypto_engine
+Error: Fatal: Metastability detected in clock domain crossing
+Module: crypto_engine
+Cycle: 0
+
+Expected Results:
+- Severity: CRITICAL or HIGH
+- Bug Type: TIMING
+- Root Cause: Related to clock domain crossing
+
+==========================================
+TEST BUG 5: Protocol Error
+==========================================
+Bug ID: Chipyard-1936
+Title: ASAP7 OpenRoad. ERROR: Cant open ABC output file.
+Error: ERROR: Cant open ABC output file tmpyosys-abc-fmM0q5output.blif
+Module: unknown
+Cycle: 0
+
+Expected Results:
+- Severity: LOW or MEDIUM
+- Bug Type: TIMING or OTHER
+- Root Cause: Related to tool/synthesis issues
+
+==========================================
+QUICK TEST (Minimal Input)
+==========================================
+Title: Setup time violation
+Error: Error: Setup violation at cycle 45231
+Module: cache_controller
+
+Just paste these three lines for a quick test!
+
+==========================================
+USAGE INSTRUCTIONS
+==========================================
+
+1. Start Streamlit app:
+   streamlit run web_app.py
+
+2. Click "Initialize Analyzer" in sidebar
+
+3. Copy one of the bug texts above
+
+4. Paste into "Paste Text/Log" field
+
+5. Optionally fill in:
+   - Title
+   - Module
+   - Test Name
+   - Failure Cycle
+
+6. Click "🚀 Analyze Bug"
+
+7. Wait 30-60 seconds
+
+8. Check results in tabs:
+   - Triage: Classification results
+   - Similar Bugs: Historical matches
+   - Root Cause: Predictions
+   - Debug Plan: Actionable steps (if API key set)
+   - Test Code: Generated code (if API key set)
+
+9. Provide feedback (thumbs up/down)
+
+10. Download results as JSON
